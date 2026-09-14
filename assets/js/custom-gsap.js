@@ -623,15 +623,40 @@
 
   ///////////////////////
   // 11. Portfolio Three Effect
-  gsap.to(".portfolio-three-shape", {
-    scrollTrigger: {
-      trigger: ".portfolio-three-area",
-      start: "top center-=200",
-      pin: ".portfolio-three-shape",
-      end: "bottom bottom-=200",
-      markers: false,
-      pinSpacing: false,
-      scrub: 1,
-    },
+  const portfolioScrollMedia = gsap.matchMedia();
+  portfolioScrollMedia.add("(min-width: 1199px)", () => {
+    const portfolioSection = document.querySelector(".portfolio-three-area");
+    const portfolioShape = document.querySelector(".portfolio-three-shape");
+
+    if (!portfolioSection || !portfolioShape) {
+      return;
+    }
+
+    gsap.to(portfolioShape, {
+      yPercent: 18,
+      scrollTrigger: {
+        trigger: portfolioSection,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1,
+        invalidateOnRefresh: true,
+        markers: false,
+      },
+    });
   });
+
+  // Recalculate the pin after images and fonts have changed section dimensions.
+  window.addEventListener("load", () => {
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.refresh();
+    }
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.refresh();
+      }
+    });
+  }
 })(jQuery);

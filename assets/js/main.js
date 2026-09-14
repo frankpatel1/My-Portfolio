@@ -69,27 +69,67 @@
   ////////////////////////////////////////////////////
   // Skills scroll reveal
   const skillRevealItems = document.querySelectorAll(".skills-reveal");
-  if (skillRevealItems.length) {
-    if (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      !("IntersectionObserver" in window)
-    ) {
-      skillRevealItems.forEach((item) => item.classList.add("is-visible"));
-    } else {
-      const skillRevealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
-      );
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canObserve = "IntersectionObserver" in window;
 
-      skillRevealItems.forEach((item) => skillRevealObserver.observe(item));
-    }
+  if (skillRevealItems.length && (reducedMotion || !canObserve)) {
+    skillRevealItems.forEach((item) => item.classList.add("is-visible"));
+  } else if (skillRevealItems.length) {
+    const skillRevealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    skillRevealItems.forEach((item) => skillRevealObserver.observe(item));
+  }
+
+  const portfolioRevealItems = document.querySelectorAll(
+    ".home-professional-works .portfolio-three-item",
+  );
+  if (portfolioRevealItems.length && (reducedMotion || !canObserve)) {
+    portfolioRevealItems.forEach((item) => item.classList.add("is-visible"));
+  } else if (portfolioRevealItems.length) {
+    const portfolioRevealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    portfolioRevealItems.forEach((item) => portfolioRevealObserver.observe(item));
+  }
+
+  const githubRevealItems = document.querySelectorAll(
+    ".home-open-source-section .github-project-card",
+  );
+  if (githubRevealItems.length && (reducedMotion || !canObserve)) {
+    githubRevealItems.forEach((item) => item.classList.add("is-visible"));
+  } else if (githubRevealItems.length) {
+    const githubRevealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    githubRevealItems.forEach((item) => githubRevealObserver.observe(item));
   }
 
   ////////////////////////////////////////////////////

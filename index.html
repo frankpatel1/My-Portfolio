@@ -13,10 +13,22 @@
     />
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Full-Stack Developer | Pune Opportunities" />
+    <meta property="og:description" content="Frank Patel builds scalable React, Node.js, Python, REST API, and cloud-ready applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://frankpatel1.github.io/My-Portfolio/" />
+    <meta property="og:image" content="https://frankpatel1.github.io/My-Portfolio/assets/images/shapes/banner-three-man.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Full-Stack Developer | Pune Opportunities" />
+    <meta name="twitter:description" content="Scalable React, Node.js, Python, REST API, and cloud-ready applications by Frank Patel." />
     <!-- Title -->
-    <title>Frank Patel | Full-Stack Developer & Python Automation Engineer</title>
-    <!-- Favicon -->
-    <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
+    <title>Full-Stack Developer | Pune Opportunities</title>
+    <!-- Browser tab icon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2302090f'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Arial,sans-serif' font-size='38' font-weight='700' fill='%23e5a100'%3EF%3C/text%3E%3C/svg%3E"
+    />
     <!-- Bootstrap -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- Swiper Bundle -->
@@ -194,6 +206,7 @@
                     class="text-white"
                     href="https://www.google.com/maps/place/Ahmedabad,+Gujarat"
                     target="_blank"
+                    rel="noopener noreferrer"
                     >Ahmedabad, Gujarat, India</a
                   >
                 </li>
@@ -276,6 +289,7 @@
                   class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
                   href="https://github.com/frankpatel1"
                   target="_blank"
+                  rel="noopener noreferrer"
                   ><i class="ph-bold ph-github-logo"></i
                 ></a>
               </li>
@@ -305,9 +319,12 @@
               <nav class="tw-main-menu-content">
                 <ul>
                   <li><a href="#about">About</a></li>
+                  <li><a href="#skills">Skills</a></li>
                   <li><a href="#experience">Experience</a></li>
                   <li><a href="#portfolio">Projects</a></li>
+                  <li><a href="#github-projects">Open Source</a></li>
                   <li><a href="#contact">Contact</a></li>
+                  <li><a href="assets/Frank-Patel-Resume.pdf" download>Resume</a></li>
                 </ul>
               </nav>
             </div>
@@ -444,8 +461,9 @@
                       data-aos-delay="200"
                     >
                       <h3 class="banner-three-center-title tw-text-120">
-                        Full-stack apps, automation pipelines, and cloud deployments built to scale.
+                        Full-Stack Developer building scalable, production-ready web applications.
                       </h3>
+                      <p class="hero-positioning-subheadline">Building modern applications using React, Node.js, Python, REST APIs, and Cloud/DevOps tooling with a focus on clean architecture, responsive UX, and scalable backend pipelines.</p>
                       <div class="banner-three-button">
                         <a
                           class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-lg"
@@ -455,6 +473,13 @@
                           <span
                             class="tw-hover-btn-circle-dot bg-main-two-600"
                           ></span>
+                        </a>
+                        <a
+                          class="hero-resume-button"
+                          href="assets/Frank-Patel-Resume.pdf"
+                          download
+                        >
+                          Download Resume (PDF)
                         </a>
                       </div>
                     </div>
@@ -1002,10 +1027,7 @@
             </div>
           </div>
         </section>
-        <section class="portfolio-three-area py-120 position-relative z-1" id="portfolio">
-          <div class="portfolio-three-shape position-absolute top-0 z-n1">
-            <h3 class="portfolio-three-shape-title">works</h3>
-          </div>
+        <section class="portfolio-three-area home-professional-works py-120 position-relative z-1" id="portfolio">
           <div class="container tw-container-1800-px">
             <div class="row">
               <div class="col-xl-12">
@@ -1046,9 +1068,11 @@
                             </li>
                           </ul>
                         </div>
+                        <p class="portfolio-card-description">Automates data collection, cleaning, and ETL workflows with Python to eliminate repetitive manual work and deliver reliable structured outputs.</p>
                       </div>
                       <div>
                         <div class="portfolio-three-button">
+                          <a class="portfolio-case-study-link" href="case-studies/automation-web-scraping.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                           <a
                             class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                             href="#portfolio"
@@ -1111,6 +1135,7 @@
                         </p>
                       </div>
                       <div class="portfolio-three-button">
+                        <a class="portfolio-case-study-link" href="case-studies/kpi-dashboard.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                         <a
                           class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                           href="#portfolio"
@@ -1166,8 +1191,10 @@
                             </li>
                           </ul>
                         </div>
+                        <p class="portfolio-card-description">Combines reusable React components, dynamic interfaces, and responsive performance patterns for a scalable product experience.</p>
                       </div>
                       <div class="portfolio-three-button">
+                        <a class="portfolio-case-study-link" href="case-studies/react-web-app.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                         <a
                           class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                           href="#portfolio"
@@ -1223,8 +1250,10 @@
                             </li>
                           </ul>
                         </div>
+                        <p class="portfolio-card-description">Connects front-end experiences to reliable REST endpoints with clear validation, loading states, and integration-ready data flows.</p>
                       </div>
                       <div class="portfolio-three-button">
+                        <a class="portfolio-case-study-link" href="case-studies/rest-api-platform.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                         <a
                           class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                           href="#portfolio"
@@ -1246,27 +1275,313 @@
                       /></a>
                     </div>
                   </div>
-                  <div
-                    class="about-three-counter portfolio-three-counter d-inline-block position-absolute bottom-0 start-0"
-                  >
-                    <div class="tw-hover-btn-wrapper d-inline-block">
-                      <a
-                        class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden"
-                        href="#about"
-                      >
-                        <span class="d-flex flex-column justify-content-center">
-                          <span
-                            class="text-heading fw-bold tw-transition-3 tw-text-2xl fw-semibold"
-                            >Discover <br />
-                            Our Projects <i class="ph ph-arrow-up-right"></i
-                          ></span>
-                        </span>
-                        <i class="tw-btn-circle-dot bg-main-two-600"></i>
-                      </a>
-                    </div>
-                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        <section class="github-projects-area home-open-source-section py-120" id="github-projects">
+          <div class="container tw-container-1800-px">
+            <div class="github-projects-box">
+            <div class="section-heading github-projects-heading">
+              <p class="section-eyebrow github-projects-badge">OPEN SOURCE</p>
+              <h2>Explore my public GitHub projects.</h2>
+              <p>
+                A selection of responsive interfaces and interactive web applications
+                built with a focus on clean design, usability, and practical
+                JavaScript development.
+              </p>
+            </div>
+            <div class="github-project-filters" role="group" aria-label="Filter GitHub projects">
+              <button class="github-project-filter is-active" type="button" data-filter="all">All</button>
+              <button class="github-project-filter" type="button" data-filter="javascript">JavaScript</button>
+              <button class="github-project-filter" type="button" data-filter="html-css">HTML/CSS</button>
+            </div>
+            <div class="github-projects-grid">
+              <article class="github-project-card github-project-card-featured" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">01</span>
+                  <i class="ph ph-film-strip github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>MovieScout</h3>
+                <p>
+                  A responsive movie discovery platform with trending films, search,
+                  movie details, and an intuitive browsing experience.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/MovieScout"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/MovieScout/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">02</span>
+                  <i class="ph ph-translate github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Translator</h3>
+                <p>
+                  A practical translation tool with language selection, text copying,
+                  speech synthesis, and a responsive interface.
+                </p>
+                <ul class="github-project-tags">
+                  <li>JavaScript</li>
+                  <li>Web APIs</li>
+                  <li>Responsive UI</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/Translator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/Translator/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">03</span>
+                  <i class="ph ph-shopping-bag-open github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Shoe E-Commerce</h3>
+                <p>
+                  A modern footwear shopping interface featuring product-focused
+                  layouts, responsive design, and interactive front-end behavior.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/shoe-ecommerce"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/shoe-ecommerce/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">04</span>
+                  <i class="ph ph-user-circle github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Web Designer Portfolio</h3>
+                <p>
+                  A modern portfolio experience showcasing creative work, professional
+                  information, responsive layouts, and a clean visual identity.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/Web-Designer-Portfolio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/Web-Designer-Portfolio/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">05</span>
+                  <i class="ph ph-car github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Awesome Car Slider</h3>
+                <p>
+                  A responsive automotive showcase with a polished slider layout,
+                  engaging visuals, and smooth front-end interactions.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/Awesome-Car-Slider"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/Awesome-Car-Slider/#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">06</span>
+                  <i class="ph ph-sparkle github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Cool Animations</h3>
+                <p>
+                  A collection of creative web animation experiments designed to add
+                  energy, movement, and visual polish to modern interfaces.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/Cool-Animations"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/Cool-Animations/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">07</span>
+                  <i class="ph ph-storefront github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Ecommerce Website</h3>
+                <p>
+                  A responsive online store interface focused on product presentation,
+                  clear navigation, and an engaging shopping experience.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/ecommerce-website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/ecommerce-website/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+              <article class="github-project-card" data-category="javascript html-css">
+                <div class="github-project-card-top">
+                  <span class="github-project-number">08</span>
+                  <i class="ph ph-flower-lotus github-project-icon" aria-hidden="true"></i>
+                </div>
+                <h3>Cosmetic Website</h3>
+                <p>
+                  A stylish responsive beauty and cosmetics website with product-led
+                  layouts, elegant visuals, and accessible browsing.
+                </p>
+                <ul class="github-project-tags">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>JavaScript</li>
+                </ul>
+                <div class="github-project-links">
+                  <a
+                    class="github-project-link"
+                    href="https://github.com/frankpatel1/cosmetic-website"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View repository <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                  <a
+                    class="github-project-link github-project-demo-link"
+                    href="https://frankpatel1.github.io/cosmetic-website/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live demo <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+            <div class="github-projects-cta">
+              <a
+                class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-lg"
+                href="https://github.com/frankpatel1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View all GitHub projects
+                <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
+              </a>
+            </div>
             </div>
           </div>
         </section>
@@ -1536,75 +1851,37 @@
                 work, and shipping confidently.
               </p>
             </div>
-            <div class="skills-grid">
-              <article class="skill-category skills-reveal" style="--skill-delay: 80ms">
-                <h3><span class="skill-icon" aria-hidden="true"><i class="ph ph-file-code"></i></span>Frontend</h3>
-                <ul>
+            <div class="skills-marquee skills-reveal" aria-label="Core technical skills">
+              <div class="skills-marquee-track">
+                <ul class="skills-marquee-list">
                   <li>React.js</li>
-                  <li>JavaScript</li>
-                  <li>HTML5</li>
-                  <li>CSS3</li>
-                  <li>React Hooks</li>
-                  <li>State Management</li>
-                  <li>Responsive Web Design</li>
-                  <li>Mobile-First Development</li>
-                  <li>Cross-Browser Compatibility</li>
-                  <li>Chrome DevTools</li>
-                </ul>
-              </article>
-              <article class="skill-category skills-reveal" style="--skill-delay: 160ms">
-                <h3><span class="skill-icon" aria-hidden="true"><i class="ph ph-database"></i></span>Backend & Data</h3>
-                <ul>
-                  <li>Python</li>
                   <li>Node.js</li>
+                  <li>Python</li>
+                  <li>TypeScript</li>
+                  <li>AWS</li>
                   <li>RESTful APIs</li>
-                  <li>API Integration</li>
+                  <li>Web Scraping</li>
                   <li>ETL Workflows</li>
-                  <li>Workflow Automation</li>
-                </ul>
-              </article>
-              <article class="skill-category skills-reveal" style="--skill-delay: 240ms">
-                <h3><span class="skill-icon" aria-hidden="true"><i class="ph ph-terminal-window"></i></span>Automation</h3>
-                <ul>
-                  <li>Python Web Scraping</li>
-                  <li>BeautifulSoup</li>
-                  <li>Selenium</li>
-                  <li>Data Extraction</li>
-                  <li>Data Cleaning</li>
-                  <li>Data Transformation</li>
-                  <li>Process Automation</li>
-                </ul>
-              </article>
-              <article class="skill-category skills-reveal" style="--skill-delay: 320ms">
-                <h3><span class="skill-icon" aria-hidden="true"><i class="ph ph-cloud"></i></span>Cloud & Delivery</h3>
-                <ul>
                   <li>MongoDB</li>
-                  <li>AWS Cloud</li>
-                  <li>Scalable Cloud Platforms</li>
-                </ul>
-              </article>
-              <article class="skill-category skills-reveal" style="--skill-delay: 400ms">
-                <h3><span class="skill-icon" aria-hidden="true"><i class="ph ph-git-branch"></i></span>DevOps & Practices</h3>
-                <ul>
-                  <li>CI/CD Pipelines</li>
-                  <li>Git</li>
+                  <li>Docker</li>
                   <li>GitHub</li>
-                  <li>Agile Development</li>
-                  <li>Code Reviews</li>
-                  <li>Testing</li>
-                  <li>Debugging</li>
-                  <li>Continuous Improvement</li>
-                </ul>
-              </article>
-              <article class="skill-category skills-reveal" style="--skill-delay: 480ms">
-                <h3><span class="skill-icon" aria-hidden="true"><i class="ph ph-chart-line-up"></i></span>Data & BI</h3>
-                <ul>
-                  <li>KPI Dashboards</li>
-                  <li>Data Consolidation</li>
                   <li>Business Intelligence</li>
-                  <li>Analytics Workflows</li>
                 </ul>
-              </article>
+                <ul class="skills-marquee-list" aria-hidden="true">
+                  <li>React.js</li>
+                  <li>Node.js</li>
+                  <li>Python</li>
+                  <li>TypeScript</li>
+                  <li>AWS</li>
+                  <li>RESTful APIs</li>
+                  <li>Web Scraping</li>
+                  <li>ETL Workflows</li>
+                  <li>MongoDB</li>
+                  <li>Docker</li>
+                  <li>GitHub</li>
+                  <li>Business Intelligence</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -1703,6 +1980,17 @@
           id="contact"
         >
           <div class="container tw-container-1800-px">
+            <div class="recruiter-contact-cta">
+              <p class="section-eyebrow">Recruiter contact</p>
+              <h2>Interested in working together?</h2>
+              <p>I'm currently open to Full-Stack Developer opportunities in Pune and remote roles.</p>
+              <div class="recruiter-contact-links">
+                <a href="mailto:frankpatel33@gmail.com">Email me</a>
+                <a href="https://linkedin.com/in/frankpatel16" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/frankpatel1" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="assets/Frank-Patel-Resume.pdf" download>Resume</a>
+              </div>
+            </div>
             <div class="row justify-content-between pb-120">
               <div class="col-xl-5 col-lg-6">
                 <div
@@ -1794,8 +2082,9 @@
                         <div class="position-relative tw-mb-7">
                           <input
                             type="text"
-                            class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
+                            class="form-control contact-field bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 tw-h-18"
                             placeholder="First Name"
+                            aria-label="First Name"
                           />
                         </div>
                       </div>
@@ -1803,23 +2092,25 @@
                         <div class="position-relative tw-mb-7">
                           <input
                             type="email"
-                            class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
+                            class="form-control contact-field bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 tw-h-18"
                             placeholder="Email Address"
+                            aria-label="Email Address"
                           />
                         </div>
                       </div>
                       <div class="col-xl-12">
                         <div class="position-relative tw-mb-7">
                           <textarea
-                            class="form-control bg-transparent shadow-none tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
+                            class="form-control contact-field tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100"
                             placeholder="Message"
+                            aria-label="Message"
                           ></textarea>
                         </div>
                       </div>
                       <div class="col-xl-12">
                         <div class="contact-button">
                           <button
-                            class="tw-hover-btn bg-main-600 text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 hover-text-heading hover-bg-white tw-transition-3 tw-rounded-lg"
+                            class="contact-submit tw-hover-btn text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 tw-rounded-lg"
                           >
                             submit message
                           </button>
@@ -1836,44 +2127,8 @@
               <div class="row">
                 <div class="col-xl-12">
                   <div
-                    class="footer-three-middile d-flex align-items-center justify-content-between"
+                    class="footer-three-middile footer-copyright-row d-flex align-items-center justify-content-between"
                   >
-                    <div
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                      data-aos-delay="200"
-                    >
-                      <h4 class="tw-text-2xl text-white tw-mb-2">
-                        Quick Links
-                      </h4>
-                      <ul class="d-flex tw-gap-2 flex-wrap">
-                        <li>
-                          <a class="tw-text-lg text-white" href="#home"
-                            >Home,</a
-                          >
-                        </li>
-                        <li>
-                          <a class="tw-text-lg text-white" href="#about"
-                            >About Me,
-                          </a>
-                        </li>
-                        <li>
-                          <a class="tw-text-lg text-white" href="#portfolio"
-                            >Portfolio,
-                          </a>
-                        </li>
-                        <li>
-                          <a class="tw-text-lg text-white" href="#services"
-                            >Service,
-                          </a>
-                        </li>
-                        <li>
-                          <a class="tw-text-lg text-white" href="#contact"
-                            >Contact
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
                     <div
                       data-aos="fade-up"
                       data-aos-duration="1000"
@@ -1885,32 +2140,11 @@
                         ><i class="ph ph-arrow-up"></i
                       ></a>
                     </div>
-                    <div
-                      class="text-lg-end"
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                      data-aos-delay="400"
-                    >
-                      <h4 class="tw-text-2xl text-white tw-mb-2">
-                        Frank Patel
-                      </h4>
+                    <div class="footer-copyright text-center">
                       <p class="tw-text-lg text-white">
-                        © 2026 Frank Patel. All rights reserved
+                        © 2026. All rights reserved By Frank Patel
                       </p>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="container tw-container-1800-px">
-              <div class="row">
-                <div class="col-xl-12">
-                  <div class="footer-three-bottom">
-                    <h5 class="footer-three-bottom-title text-white">
-                      Frank Patel
-                    </h5>
                   </div>
                 </div>
               </div>
@@ -1926,6 +2160,24 @@
         </section>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = [...document.querySelectorAll(".github-project-card")];
+        const filterButtons = [...document.querySelectorAll(".github-project-filter")];
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const filter = button.dataset.filter;
+            filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+            cards.forEach((card) => {
+              const matches = filter === "all" || card.dataset.category?.includes(filter);
+              card.classList.toggle("is-hidden", !matches);
+            });
+          });
+        });
+
+      });
+    </script>
     <!-- Jquery js -->
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <!-- phosphor Js -->

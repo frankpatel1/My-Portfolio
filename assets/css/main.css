@@ -6223,16 +6223,94 @@ input:focus-visible {
 .footer-three-social ul li a {
   background: #f5f5f5;
 }
-.footer-three-form input {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.footer-three-form .contact-field {
+  padding: 12px 15px;
+  color: #ffffff;
+  background: #111111 !important;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
-.footer-three-form textarea {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.footer-three-form .contact-field::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+.footer-three-form input.contact-field:focus,
+.footer-three-form textarea.contact-field:focus {
+  color: #ffffff !important;
+  background: #111111 !important;
+  border-color: #ff5722 !important;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.2) !important;
+  outline: none;
+}
+.footer-three-form .contact-submit {
+  color: #000000;
+  background: #ff5722;
+  border: 1px solid #ff5722;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+.footer-three-form .contact-submit:hover,
+.footer-three-form .contact-submit:focus-visible {
+  color: #ff5722;
+  background: #000000;
+  border-color: #ff5722;
+  transform: translateY(-2px);
 }
 .footer-three-border {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-block: 20px;
+}
+.footer-copyright-row {
+  position: relative;
+  min-height: 70px;
+}
+.footer-copyright {
+  position: absolute;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.footer-copyright p {
+  margin: 0;
+  color: #ffffff;
+  animation: footerCopyrightGlow 3s ease-in-out infinite;
+}
+@keyframes footerCopyrightGlow {
+  0%,
+  100% {
+    opacity: 0.72;
+    text-shadow: 0 0 0 rgba(255, 87, 34, 0);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 18px rgba(255, 87, 34, 0.5);
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer-copyright-row {
+    justify-content: center !important;
+  }
+  .footer-copyright {
+    position: static;
+    transform: none;
+    white-space: normal;
+  }
+  .footer-copyright-row > div:first-child {
+    position: absolute;
+    inset-inline-start: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer-copyright p {
+    animation: none;
+  }
 }
 @media screen and (max-width: 991px) {
   .footer-three-border {
@@ -8173,8 +8251,48 @@ body.tw-magic-cursor #magic-cursor {
 }
 
 .banner-three-area {
+  position: relative;
   background: #f5f5f5;
   padding-block: 200px 100px;
+}
+.banner-three-area::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 32%;
+  background: linear-gradient(transparent, rgba(2, 9, 15, 0.16));
+  content: "";
+  pointer-events: none;
+}
+.banner-three-wrapper {
+  isolation: isolate;
+}
+.banner-three-center-title {
+  text-shadow: 0 3px 18px rgba(255, 255, 255, 0.9);
+}
+.banner-three-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.hero-resume-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 28px;
+  color: #02090f;
+  background: #b8e600;
+  border: 1px solid #b8e600;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.hero-resume-button:hover {
+  color: #ffffff;
+  background: #02090f;
+  border-color: #02090f;
 }
 @media screen and (max-width: 1199px) {
   .banner-three-area {
@@ -8331,6 +8449,13 @@ body.tw-magic-cursor #magic-cursor {
   width: 100%;
   margin: auto;
   margin-block-end: 20px;
+}
+.hero-positioning-subheadline {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  color: #02090f;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 @media screen and (max-width: 767px) {
   .banner-three-center-title {
@@ -8725,6 +8850,487 @@ body.tw-magic-cursor #magic-cursor {
   max-width: 559px;
   width: 100%;
 }
+.home-professional-works {
+  overflow: hidden;
+  background: #ffffff;
+  color: #111111;
+  padding-block: clamp(6rem, 10vw, 10rem);
+  margin-block-end: 0;
+}
+.home-professional-works .portfolio-three-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  max-width: 1100px;
+  margin-inline: auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  background: #ffffff;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.home-professional-works .portfolio-three-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.home-professional-works .portfolio-three-item:hover {
+  border-color: #ff5722;
+  box-shadow: 0 18px 40px rgba(255, 87, 34, 0.14);
+  transform: translateY(-4px) scale(1.01);
+}
+.home-professional-works .portfolio-three-item:nth-child(odd) .portfolio-thumb {
+  order: 1;
+}
+.home-professional-works .portfolio-three-item:nth-child(odd) .portfolio-three-wrap {
+  order: 2;
+}
+.home-professional-works .portfolio-three-item:nth-child(even) .portfolio-three-wrap {
+  order: 1;
+}
+.home-professional-works .portfolio-three-item:nth-child(even) .portfolio-thumb {
+  order: 1;
+}
+.home-professional-works .portfolio-three-wrap {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
+}
+.home-professional-works .portfolio-three-wrap h2,
+.home-professional-works .portfolio-three-wrap h2 a {
+  color: #111111;
+}
+.home-professional-works .portfolio-three-wrap h2 a:hover {
+  color: #ff5722;
+}
+.home-professional-works .portfolio-three-list ul {
+  gap: 10px;
+}
+.home-professional-works .portfolio-three-list ul li a {
+  color: #ff5722;
+  border: 1px solid #ff5722;
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 11px;
+}
+
+.home-professional-works .portfolio-three-list ul li a::before {
+  display: none;
+}
+.home-professional-works .portfolio-three-list ul li a:hover {
+  color: #000000;
+  background: #ff5722;
+  border-color: #ff5722;
+}
+.home-professional-works .portfolio-thumb {
+  overflow: hidden;
+  height: 100%;
+  min-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.home-professional-works .portfolio-thumb img {
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.home-professional-works .portfolio-three-item:hover .portfolio-thumb img {
+  transform: scale(1.02);
+}
+.recruiter-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.recruiter-contact-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: #02090f;
+  background: #f2c94c;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.recruiter-contact-links a:hover {
+  color: #02090f;
+  background: #b8e600;
+}
+.recruiter-contact-cta {
+  margin-block-end: 48px;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+.recruiter-contact-cta h2 {
+  margin-block: 10px;
+  color: #fff;
+}
+.recruiter-contact-cta > p:not(.section-eyebrow) {
+  margin-block-end: 20px;
+  color: rgba(255, 255, 255, 0.72);
+}
+@media screen and (max-width: 767px) {
+  .hero-positioning-subheadline {
+    padding-inline: 16px;
+  }
+}
+.home-professional-works .portfolio-card-description {
+  max-width: 620px;
+  margin-block-start: 18px;
+  color: #333333;
+  line-height: 1.7;
+}
+.home-professional-works .portfolio-three-button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.home-professional-works .portfolio-case-study-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  color: #111111;
+  border: 1px solid #ff5722;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+}
+.home-professional-works .portfolio-case-study-link {
+  color: #ffffff;
+  background: #ff5722;
+}
+.home-professional-works .portfolio-case-study-link:hover {
+  color: #ffffff;
+  background: #ff5722;
+  box-shadow: 0 8px 18px rgba(255, 87, 34, 0.24);
+  transform: translateY(-2px);
+}
+@media (max-width: 767px) {
+  .home-professional-works .portfolio-three-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .home-professional-works .portfolio-three-item:nth-child(even) .portfolio-three-wrap,
+  .home-professional-works .portfolio-three-item:nth-child(even) .portfolio-thumb {
+    order: initial;
+  }
+  .home-professional-works .portfolio-three-item:nth-child(n) .portfolio-thumb {
+    order: 1;
+  }
+  .home-professional-works .portfolio-three-item:nth-child(n) .portfolio-three-wrap {
+    order: 2;
+  }
+  .home-professional-works .portfolio-three-wrap,
+  .home-professional-works .portfolio-thumb {
+    width: 100%;
+  }
+  .home-professional-works .portfolio-thumb {
+    min-height: 220px;
+  }
+  .home-professional-works .portfolio-thumb img {
+    min-height: 220px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-professional-works .portfolio-three-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+.portfolio-case-study-link {
+  color: #02090f;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.portfolio-case-study-link:hover {
+  color: #e5a100;
+}
+.github-projects-area {
+  background: #ffffff;
+  text-align: center;
+}
+.home-open-source-section {
+  position: relative;
+  margin-block-start: 0;
+  padding-block: clamp(7rem, 12vw, 13rem);
+  color: #02090f;
+}
+.home-open-source-section::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 12px;
+  background: #f2c94c;
+  content: "";
+}
+.home-open-source-section .github-projects-box {
+  background: #ffffff;
+  border: 1px solid rgba(2, 9, 15, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(2, 9, 15, 0.08);
+}
+.home-open-source-section .github-projects-heading h2 {
+  color: #02090f;
+}
+.home-open-source-section .github-projects-heading > p:last-child {
+  color: #5d6266;
+}
+.home-open-source-section .github-projects-badge {
+  color: #02090f;
+  background: #f2c94c;
+}
+.home-open-source-section .github-projects-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.home-open-source-section .github-project-card {
+  min-height: 330px;
+  padding: 22px;
+  text-align: left;
+  background: #fffaf0;
+  border: 1px solid rgba(2, 9, 15, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.home-open-source-section .github-project-card:hover {
+  transform: translateY(-5px);
+  background: #ffffff;
+  border-color: #b8e600;
+  box-shadow: 0 12px 24px rgba(184, 230, 0, 0.16);
+}
+.home-open-source-section .github-project-card-top {
+  justify-content: space-between;
+  margin-block-end: 24px;
+}
+.home-open-source-section .github-project-number {
+  color: #6b6b6b;
+}
+.home-open-source-section .github-project-icon {
+  color: #f2c94c;
+}
+.home-open-source-section .github-project-card h3 {
+  color: #02090f;
+  font-size: 1.2rem;
+}
+.home-open-source-section .github-project-card p {
+  color: #5d6266;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.home-open-source-section .github-project-tags {
+  justify-content: flex-start;
+}
+.home-open-source-section .github-project-tags li {
+  color: #02090f;
+  background: #fff4cc;
+  border: 0;
+}
+.home-open-source-section .github-project-links {
+  justify-content: flex-start;
+  gap: 12px;
+}
+.home-open-source-section .github-project-link {
+  color: #02090f;
+  font-size: 12px;
+}
+.home-open-source-section .github-project-link:hover {
+  color: #b8e600;
+}
+.github-projects-box {
+  padding: clamp(28px, 5vw, 72px);
+  background: #fffaf0;
+  border: 1px solid rgba(2, 9, 15, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(2, 9, 15, 0.08);
+}
+.github-projects-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  color: #02090f;
+  background: #f2c94c;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+.github-projects-badge:hover {
+  background: #b8e600;
+}
+.github-projects-heading {
+  max-width: 760px;
+  margin: 0 auto 55px;
+}
+.github-projects-heading > p:last-child {
+  max-width: 650px;
+  margin: 18px auto 0;
+}
+.github-project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: 30px;
+}
+.github-project-filter {
+  padding: 10px 18px;
+  color: #02090f;
+  background: transparent;
+  border: 1px solid rgba(2, 9, 15, 0.2);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.github-project-filter:hover,
+.github-project-filter.is-active {
+  background: #b8e600;
+  border-color: #b8e600;
+}
+.github-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.github-project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 390px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid rgba(2, 9, 15, 0.1);
+  border-bottom: 4px solid transparent;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.github-project-card.is-hidden {
+  display: none;
+}
+.github-project-card:hover {
+  transform: translateY(-8px);
+  border-bottom-color: #b8e600;
+  box-shadow: 0 14px 30px rgba(184, 230, 0, 0.2);
+}
+.github-project-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-block-end: 35px;
+}
+.github-project-number {
+  color: #6b6b6b;
+  font-size: 14px;
+  font-weight: 700;
+}
+.github-project-icon {
+  color: #e5a100;
+  font-size: 34px;
+}
+.github-project-card h3 {
+  margin-block-end: 16px;
+  color: #02090f;
+  font-size: 26px;
+}
+.github-project-card p {
+  text-align: center;
+  color: #5d6266;
+  line-height: 1.7;
+}
+.github-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: auto 0 25px;
+  padding: 0;
+  list-style: none;
+}
+.github-project-tags li {
+  padding: 6px 10px;
+  color: #02090f;
+  background: #fff4cc;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.github-project-tags li:hover {
+  background: #f2c94c;
+  color: #02090f;
+}
+.github-project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #02090f;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.github-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+}
+.github-project-links .github-project-link {
+  margin-top: 0;
+}
+.github-project-demo-link {
+  color: #5d6266;
+}
+.github-project-link:hover {
+  color: #b8e600;
+}
+.github-project-link i {
+  transition: all 0.3s ease;
+}
+.github-project-link:hover i {
+  color: #b8e600;
+  transform: translate(3px, -3px);
+}
+.github-projects-cta {
+  margin-block-start: 45px;
+  text-align: center;
+}
+@media screen and (max-width: 575px) {
+  .github-project-card {
+    min-height: 350px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .home-open-source-section .github-projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 575px) {
+  .home-open-source-section .github-projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .portfolio-wrapper {
   background: #f4f2ee;
 }
@@ -8878,54 +9484,6 @@ body.tw-magic-cursor #magic-cursor {
   box-shadow:
     0 4px 4px 0 rgba(0, 0, 0, 0.25),
     -4px -4px 0 0 rgba(255, 255, 255, 0.25);
-}
-.portfolio-three-shape-title {
-  font-size: 642px;
-}
-@media screen and (max-width: 1799px) {
-  .portfolio-three-shape-title {
-    font-size: 580px;
-  }
-}
-@media screen and (max-width: 1699px) {
-  .portfolio-three-shape-title {
-    font-size: 555px;
-  }
-}
-@media screen and (max-width: 1499px) {
-  .portfolio-three-shape-title {
-    font-size: 480px;
-  }
-}
-@media screen and (max-width: 1399px) {
-  .portfolio-three-shape-title {
-    font-size: 415px;
-  }
-}
-@media screen and (max-width: 1199px) {
-  .portfolio-three-shape-title {
-    font-size: 340px;
-  }
-}
-@media screen and (max-width: 991px) {
-  .portfolio-three-shape-title {
-    font-size: 265px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .portfolio-three-shape-title {
-    font-size: 200px;
-  }
-}
-@media screen and (max-width: 575px) {
-  .portfolio-three-shape-title {
-    font-size: 146px;
-  }
-}
-@media screen and (max-width: 424px) {
-  .portfolio-three-shape-title {
-    font-size: 130px;
-  }
 }
 
 .portfolio-ip-two-wrapper {
@@ -10101,7 +10659,7 @@ video {
 }
 
 .skills-area {
-  background: #f4f2ee;
+  background: #ffffff;
   padding: clamp(4rem, 8vw, 7.5rem) 0;
 }
 
@@ -10112,7 +10670,7 @@ video {
 }
 
 .skills-eyebrow {
-  color: var(--main-two-600);
+  color: #ff5722;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -10121,34 +10679,16 @@ video {
 }
 
 .skills-heading h2 {
-  color: hsl(var(--heading-color));
+  color: #e64a19;
   font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.1;
   margin-bottom: 1rem;
 }
 
 .skills-intro {
+  color: #333333;
   font-size: 1.05rem;
   line-height: 1.6;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.skill-category {
-  min-width: 0;
-  padding: clamp(1.25rem, 2vw, 2rem);
-  border: 1px solid rgba(3, 4, 28, 0.1);
-  border-radius: 1rem;
-  background: hsl(var(--white));
-  box-shadow: 0 0.5rem 1.5rem rgba(3, 4, 28, 0.06);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
 }
 
 .skills-reveal {
@@ -10165,86 +10705,55 @@ video {
   transform: translateY(0);
 }
 
-.skill-category:hover {
-  border-color: var(--main-two-600);
-  box-shadow: 0 1rem 2.5rem rgba(3, 4, 28, 0.12);
-  transform: translateY(-0.35rem) scale(1.01);
+.skills-marquee {
+  overflow: hidden;
+  padding-block: 0.75rem;
 }
 
-.skill-category h3 {
+.skills-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: skillsMarquee 32s linear infinite;
+}
+
+.skills-marquee-list {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  color: hsl(var(--heading-color));
-  font-size: 1.25rem;
-  line-height: 1.25;
-  margin-bottom: 1.25rem;
-}
-
-.skill-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 2.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 0.65rem;
-  background: var(--main-two-600);
-  color: hsl(var(--heading-color));
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.skill-category ul {
-  display: grid;
-  gap: 0.65rem;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 0.5rem;
   list-style: none;
-  padding: 0;
 }
 
-.skill-category li {
-  display: block;
-  padding: 0.5rem 0.65rem;
-  border-radius: 0.5rem;
-  color: hsl(var(--heading-color));
-  font-size: 1rem;
-  line-height: 1.4;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
-  transform-origin: left center;
+.skills-marquee-list li {
+  padding: 0.8rem 1.3rem;
+  color: #ff5722;
+  border: 1px solid rgba(255, 87, 34, 0.4);
+  border-radius: 999px;
+  background: #fff7f3;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all 0.4s ease;
 }
 
-.skill-category li:hover {
-  background: hsl(var(--main-two-h) var(--main-two-s) var(--main-two-l) / 0.12);
-  box-shadow: 0 0.35rem 0.8rem rgba(3, 4, 28, 0.08);
-  color: hsl(var(--heading-color));
-  transform: scale(1.05);
+.skills-marquee-list li:hover {
+  color: #ffffff;
+  background: #ff5722;
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.2);
+  transform: translateY(-3px);
 }
 
-.skill-category li::before {
-  content: "";
-  display: inline-block;
-  width: 0.4rem;
-  height: 0.4rem;
-  margin: 0 0.6rem 0.1rem 0;
-  border-radius: 50%;
-  background: var(--main-two-600);
-}
-
-@media screen and (max-width: 991px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@keyframes skillsMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
 @media screen and (max-width: 575px) {
-  .skills-grid {
-    grid-template-columns: 1fr;
-  }
-
   .service-three-single {
     padding: 1.25rem;
     border-radius: 1.5rem;
@@ -10262,18 +10771,13 @@ video {
 
 @media (prefers-reduced-motion: reduce) {
   .skills-reveal,
-  .skill-category,
-  .skill-category li {
+  .skills-marquee-track {
     transition: none;
+    animation: none;
   }
 
   .skills-reveal {
     opacity: 1;
-    transform: none;
-  }
-
-  .skill-category:hover,
-  .skill-category li:hover {
     transform: none;
   }
 }
@@ -10482,6 +10986,220 @@ video {
   margin-top: 1rem;
 }
 
+.home-professional-works .portfolio-three-item:nth-child(even) {
+  margin-top: 0;
+}
+
+/* Unified black, white, and orange treatment for the primary portfolio sections. */
+.service-three-area,
+.home-open-source-section {
+  background: #000000;
+  color: #ffffff;
+}
+
+.service-three-area .service-three-single {
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  background: #111111;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Bright open-source gallery treatment. */
+.home-open-source-section {
+  background: #ffffff;
+  color: #111111;
+}
+
+.home-open-source-section .github-projects-heading h2 {
+  color: #e64a19;
+}
+
+.home-open-source-section .github-projects-heading > p:last-child {
+  color: #333333;
+}
+
+.home-open-source-section .github-project-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-color: rgba(17, 17, 17, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity 0.65s ease,
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.home-open-source-section .github-project-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-open-source-section .github-project-card:hover {
+  background: #ffffff;
+  border-color: #ff5722;
+  box-shadow: 0 18px 40px rgba(255, 87, 34, 0.18);
+  transform: translateY(-6px) scale(1.01);
+}
+
+.home-open-source-section .github-project-number,
+.home-open-source-section .github-project-card h3 {
+  color: #111111;
+}
+
+.home-open-source-section .github-project-card p {
+  color: #333333;
+}
+
+.home-open-source-section .github-project-tags li {
+  color: #e64a19;
+  background: #fff7f3;
+  border-color: rgba(255, 87, 34, 0.4);
+}
+
+.home-open-source-section .github-project-link,
+.home-open-source-section .github-project-icon {
+  color: #ff5722;
+}
+
+.home-open-source-section .github-project-link:hover {
+  color: #e64a19;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-open-source-section .github-project-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}
+
+.service-three-area .service-three-single:hover {
+  border-color: #ff5722;
+  box-shadow: 0 18px 40px rgba(255, 87, 34, 0.18);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.service-three-area .service-three-title a,
+.service-three-area .service-three-number {
+  color: #ffffff;
+}
+
+.service-three-area .service-three-single:hover .service-three-title a,
+.service-three-area .service-three-single:hover .service-three-number {
+  color: #ff5722;
+}
+
+.service-three-area .portfolio-two-list ul li a {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.service-three-area .portfolio-two-list ul li a:hover {
+  color: #111111;
+  background: #ff5722;
+  border-color: #ff5722;
+}
+
+.home-open-source-section {
+  padding-block: clamp(6rem, 10vw, 10rem);
+}
+
+.home-open-source-section::before {
+  height: 6px;
+  background: #ff5722;
+}
+
+.home-open-source-section .github-projects-box {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.home-open-source-section .github-projects-heading h2,
+.home-open-source-section .github-projects-heading > p:last-child {
+  color: #ffffff;
+}
+
+.home-open-source-section .github-projects-badge {
+  color: #ffffff;
+  background: #ff5722;
+}
+
+.home-open-source-section .github-project-filter {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.home-open-source-section .github-project-filter:hover,
+.home-open-source-section .github-project-filter.is-active {
+  color: #111111;
+  background: #ff5722;
+  border-color: #ff5722;
+}
+
+.home-open-source-section .github-project-card {
+  min-height: 330px;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-open-source-section .github-project-card:hover {
+  background: #111111;
+  border-color: #ff5722;
+  box-shadow: 0 18px 40px rgba(255, 87, 34, 0.18);
+  transform: translateY(-4px) scale(1.01);
+}
+
+.home-open-source-section .github-project-number,
+.home-open-source-section .github-project-card h3 {
+  color: #ffffff;
+}
+
+.home-open-source-section .github-project-icon,
+.home-open-source-section .github-project-link {
+  color: #ff5722;
+}
+
+.home-open-source-section .github-project-card p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.home-open-source-section .github-project-tags li {
+  color: #ffffff;
+  background: rgba(255, 87, 34, 0.16);
+  border: 1px solid rgba(255, 87, 34, 0.45);
+}
+
+.home-open-source-section .github-project-tags li:hover,
+.home-open-source-section .github-project-link:hover {
+  color: #ffffff;
+}
+
+.home-professional-works .portfolio-three-item,
+.service-three-area .service-three-single,
+.home-open-source-section .github-project-card {
+  border-radius: 14px;
+}
+
 @media screen and (max-width: 991px) {
   .achievements-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -10498,6 +11216,68 @@ video {
   .achievements-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Final white/orange overrides for the animated open-source gallery. */
+.home-open-source-section {
+  background: #ffffff;
+  color: #111111;
+}
+
+.home-open-source-section .github-projects-heading h2 {
+  color: #e64a19;
+}
+
+.home-open-source-section .github-projects-heading > p:last-child {
+  color: #333333;
+}
+
+.home-open-source-section .github-projects-box {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.home-open-source-section .github-projects-badge {
+  color: #ffffff;
+  background: #ff5722;
+}
+
+.home-open-source-section .github-project-filter {
+  color: #111111;
+  border-color: rgba(17, 17, 17, 0.2);
+}
+
+.home-open-source-section .github-project-filter:hover,
+.home-open-source-section .github-project-filter.is-active {
+  color: #ffffff;
+  background: #ff5722;
+  border-color: #ff5722;
+}
+
+.home-open-source-section .github-project-card {
+  background: #ffffff;
+  border-color: rgba(17, 17, 17, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.home-open-source-section .github-project-card:hover {
+  background: #ffffff;
+}
+
+.home-open-source-section .github-project-number,
+.home-open-source-section .github-project-card h3 {
+  color: #111111;
+}
+
+.home-open-source-section .github-project-card p {
+  color: #333333;
+}
+
+.home-open-source-section .github-project-tags li {
+  color: #e64a19;
+  background: #fff7f3;
+  border-color: rgba(255, 87, 34, 0.4);
 }
 
 /*# sourceMappingURL=main.css.map */
