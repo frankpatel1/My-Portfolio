@@ -6268,14 +6268,18 @@ input:focus-visible {
 }
 .footer-copyright-row {
   position: relative;
-  min-height: 70px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer-copyright {
-  position: absolute;
-  left: 50%;
-  margin: 0;
-  transform: translateX(-50%);
-  white-space: nowrap;
+  position: relative;
+  left: auto;
+  margin: 0 auto;
+  transform: none;
+  white-space: normal;
+  text-align: center;
 }
 .footer-copyright p {
   margin: 0;
@@ -11353,6 +11357,945 @@ video {
   color: #e64a19;
   background: #fff7f3;
   border-color: rgba(255, 87, 34, 0.4);
+}
+
+/* ==========================================================================
+   PRODUCTION RESPONSIVE & MOBILE POLISH SUITE
+   - Fixes all mobile overflow, clipping, alignment, spacing, typography
+   - Supports 320px, 360px, 375px, 390px, 412px, 430px, 768px, 1024px, 1280px+
+   - Preserves desktop aesthetic, imagery, and animations
+   ========================================================================== */
+
+/* 1. Global Box-Sizing & Overflow Safeguards */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+#smooth-wrapper,
+#smooth-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Ensure images never overflow their parents */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container safety */
+.container,
+.container-fluid,
+.tw-container-1800-px {
+  width: 100%;
+  max-width: 100%;
+  padding-inline: clamp(14px, 3.5vw, 24px);
+  box-sizing: border-box;
+  overflow-x: clip;
+}
+
+@media (min-width: 1200px) {
+  .tw-container-1800-px {
+    max-width: 1800px;
+    padding-inline: 30px;
+    overflow-x: visible;
+  }
+}
+
+/* 2. Hero Section Mobile Responsiveness */
+.banner-three-area {
+  position: relative;
+  overflow-x: clip;
+  width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .banner-three-area {
+    padding-block: clamp(80px, 14vw, 110px) clamp(40px, 8vw, 60px) !important;
+  }
+
+  .banner-three-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  /* DEVELOPER Heading: clamp ensures the full word fits in 320px viewport without clipping */
+  .banner-three-title {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-block-end: clamp(10px, 3vw, 18px) !important;
+    font-size: clamp(2.1rem, 11.2vw, 5.2rem) !important;
+    letter-spacing: -0.02em !important;
+    line-height: 0.9 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    text-transform: uppercase !important;
+  }
+
+  /* Character Image: Centered, properly scaled, no overflow */
+  .banner-three-man {
+    order: 2 !important;
+    position: relative !important;
+    inset: auto !important;
+    width: min(65vw, 250px) !important;
+    max-width: 100% !important;
+    margin: 0 auto clamp(14px, 3.5vw, 24px) !important;
+    transform: none !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .banner-three-man img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 380px !important;
+    object-fit: contain !important;
+  }
+
+  /* Hero Wrap */
+  .banner-three-wrap {
+    order: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 20px !important;
+  }
+
+  .banner-three-left {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-block-end: 0 !important;
+    padding: clamp(16px, 4vw, 24px) !important;
+    border-radius: 12px !important;
+  }
+
+  .banner-three-left-title {
+    font-size: clamp(1.15rem, 4vw, 1.5rem) !important;
+    line-height: 1.35 !important;
+    margin-bottom: 14px !important;
+  }
+
+  .banner-three-list ul li {
+    font-size: clamp(0.88rem, 2.8vw, 1rem) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .banner-three-center {
+    order: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .banner-three-center-title {
+    font-size: clamp(1.3rem, 5.5vw, 2.1rem) !important;
+    line-height: 1.25 !important;
+    margin-bottom: 12px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-positioning-subheadline {
+    font-size: clamp(0.88rem, 3vw, 1rem) !important;
+    line-height: 1.6 !important;
+    max-width: 580px !important;
+    margin: 0 auto 18px !important;
+    padding-inline: 0 !important;
+  }
+
+  .banner-three-button {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  .banner-three-button > a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    display: inline-flex !important;
+    min-height: 48px !important;
+    align-items: center !important;
+  }
+
+  .banner-three-line-shape {
+    display: none !important;
+  }
+}
+
+/* Extra breakpoint refinement for 320px - 360px */
+@media screen and (max-width: 360px) {
+  .banner-three-title {
+    font-size: clamp(1.85rem, 10.8vw, 2.4rem) !important;
+  }
+  .banner-three-man {
+    width: min(60vw, 210px) !important;
+  }
+}
+
+/* 3. Mobile Navigation & Offcanvas Menu */
+.tw-offcanvas-2-area {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .tw-offcanvas-2-bg.left-box {
+    width: 100% !important;
+  }
+
+  .tw-offcanvas-2-wrapper .left-box {
+    width: 100% !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 40px !important;
+    box-sizing: border-box !important;
+  }
+
+  .tw-offcanvas-2-left-wrap {
+    padding: 18px 20px 12px !important;
+    margin-bottom: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .twoffcanvas__logo {
+    padding: 0 !important;
+  }
+
+  .twoffcanvas__logo .logo-1 {
+    font-size: 1.35rem !important;
+  }
+
+  .tw-offcanvas-2-close {
+    padding: 0 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .tw-offcanvas-2-close-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 8px 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #ffffff !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
+  }
+
+  .tw-offcanvas-2-close-btn:hover,
+  .tw-offcanvas-2-close-btn:focus-visible {
+    background: rgba(255, 87, 34, 0.25) !important;
+    border-color: #ff5722 !important;
+    outline: none !important;
+  }
+
+  .tw-offcanvas-2-close-btn .text {
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    transform: none !important;
+    margin-right: 6px !important;
+  }
+
+  .tw-offcanvas-2-close-btn .text span {
+    transform: none !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #ffffff !important;
+  }
+
+  .tw-offcanvas-2-close-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+    display: block !important;
+    fill: #ffffff !important;
+  }
+
+  .tw-main-menu-mobile {
+    padding: 0 20px 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  .tw-main-menu-mobile > nav > ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .tw-main-menu-mobile > nav > ul > li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-top: none !important;
+  }
+
+  .tw-main-menu-mobile > nav > ul > li > a {
+    font-size: clamp(1.1rem, 5vw, 1.55rem) !important;
+    padding: 14px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    color: #ffffff !important;
+    border-top: none !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    transition: color 0.2s ease, padding-left 0.2s ease !important;
+  }
+
+  .tw-main-menu-mobile > nav > ul > li > a:hover,
+  .tw-main-menu-mobile > nav > ul > li > a:active {
+    color: var(--main-two-600, #ff5722) !important;
+    padding-left: 6px !important;
+  }
+}
+
+/* 4. Experience & Statistics Section ("2+ Years of Experience") */
+.about-three-area {
+  position: relative;
+  overflow-x: clip;
+  width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .about-three-title {
+    font-size: clamp(1.4rem, 4.5vw, 2.2rem) !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+  }
+
+  .about-three-right {
+    margin-top: 24px;
+    text-align: left;
+  }
+
+  /* Centered circular experience badge */
+  .about-three-counter {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 32px auto 0 !important;
+    text-align: center !important;
+  }
+
+  .about-three-counter .tw-hover-btn-wrapper {
+    display: flex !important;
+    justify-content: center !important;
+    width: auto !important;
+  }
+
+  .about-three-counter .tw-btn-circle {
+    width: clamp(210px, 58vw, 280px) !important;
+    height: clamp(210px, 58vw, 280px) !important;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), -2px -2px 0 0 rgba(255, 255, 255, 0.4) !important;
+    background: #f5f5f5 !important;
+    box-sizing: border-box !important;
+  }
+
+  .about-three-counter .tw-btn-circle > span {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    padding: 10px !important;
+  }
+
+  .about-three-counter .tw-btn-circle-icon {
+    font-size: clamp(2.8rem, 11vw, 4.2rem) !important;
+    line-height: 1 !important;
+    margin-bottom: 4px !important;
+    display: block !important;
+    text-align: center !important;
+    color: hsl(var(--heading-color)) !important;
+  }
+
+  .about-three-counter .tw-btn-circle > span > span:last-child {
+    font-size: clamp(0.85rem, 3.2vw, 1.05rem) !important;
+    line-height: 1.25 !important;
+    max-width: 135px !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    color: hsl(var(--heading-color)) !important;
+    font-weight: 700 !important;
+  }
+
+  /* Decorative orange dot contained strictly inside the circle */
+  .about-three-counter .tw-btn-circle-dot {
+    position: absolute !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+  }
+
+  /* 40% & 30% Statistic Cards */
+  .about-three-wrap-shape {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 16px !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    margin-top: 36px !important;
+  }
+
+  .about-three-wrap-shape .banner-three-counter-item {
+    flex: 1 1 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-block-start: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: clamp(16px, 4vw, 24px) !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .about-three-wrap-shape {
+    flex-direction: column !important;
+    gap: 16px !important;
+    align-items: center !important;
+  }
+
+  .about-three-wrap-shape .banner-three-counter-item {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    margin-block-start: 0 !important;
+  }
+
+  .banner-three-counter-title {
+    font-size: clamp(2.3rem, 7.5vw, 3.2rem) !important;
+    line-height: 1 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .banner-three-counter-paragraph {
+    font-size: clamp(0.88rem, 3vw, 1rem) !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* 5. Project Cards */
+.home-professional-works .portfolio-three-wrapper {
+  width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+  .home-professional-works .portfolio-three-item {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+    padding: clamp(14px, 4vw, 24px) !important;
+    box-sizing: border-box !important;
+    gap: 16px !important;
+    margin-bottom: 24px !important;
+    border-radius: 14px !important;
+  }
+
+  .home-professional-works .portfolio-three-item:nth-child(n) .portfolio-thumb {
+    order: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: unset !important;
+    overflow: hidden !important;
+    border-radius: 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .home-professional-works .portfolio-three-item:nth-child(n) .portfolio-thumb img {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 10px !important;
+    min-height: unset !important;
+  }
+
+  .home-professional-works .portfolio-three-item:nth-child(n) .portfolio-three-wrap {
+    order: 2 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+
+  .home-professional-works .portfolio-three-wrap h2 {
+    font-size: clamp(1.2rem, 3.8vw, 1.55rem) !important;
+    line-height: 1.3 !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+    margin-bottom: 10px !important;
+  }
+
+  .home-professional-works .portfolio-three-list ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin: 0 0 12px !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+
+  .home-professional-works .portfolio-three-list ul li a {
+    font-size: 11px !important;
+    padding: 5px 11px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    border-radius: 999px !important;
+  }
+
+  .portfolio-card-description {
+    font-size: clamp(0.88rem, 2.5vw, 0.95rem) !important;
+    line-height: 1.6 !important;
+    margin: 0 0 16px !important;
+    color: #333333 !important;
+  }
+
+  .home-professional-works .portfolio-three-button {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    margin-top: auto !important;
+  }
+
+  .home-professional-works .portfolio-case-study-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 42px !important;
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    border-radius: 6px !important;
+    color: #ffffff !important;
+    background: #ff5722 !important;
+    border: 1px solid #ff5722 !important;
+  }
+
+  .home-professional-works .portfolio-three-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* 6. Contact Form Section */
+.footer-three-area {
+  position: relative;
+  overflow-x: clip;
+  width: 100%;
+}
+
+.recruiter-contact-cta {
+  padding: clamp(18px, 4vw, 32px) !important;
+  box-sizing: border-box !important;
+  margin-bottom: clamp(32px, 6vw, 48px) !important;
+}
+
+.recruiter-contact-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+}
+
+@media screen and (max-width: 991px) {
+  .footer-three-top-left {
+    margin-inline-end: 0 !important;
+    margin-bottom: 36px !important;
+  }
+
+  .footer-three-top-left .tw-text-15 {
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  .footer-three-top-info {
+    padding: clamp(14px, 3.5vw, 20px) !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .footer-three-top-info {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  .footer-three-top-thumb {
+    width: clamp(80px, 24vw, 110px) !important;
+    max-width: 100% !important;
+  }
+}
+
+.footer-three-form {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.footer-three-form form .row {
+  margin-inline: 0 !important;
+}
+
+.footer-three-form form [class*="col-"] {
+  padding-inline: 0 !important;
+}
+
+.footer-three-form .contact-field {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  padding: 14px 16px !important;
+  font-size: 1rem !important;
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.footer-three-form textarea.contact-field {
+  min-height: 140px !important;
+  height: auto !important;
+  resize: vertical !important;
+}
+
+.footer-three-form .contact-field:focus {
+  border-color: #ff5722 !important;
+  box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.25) !important;
+  outline: none !important;
+  color: #ffffff !important;
+  background: #111111 !important;
+}
+
+.contact-button {
+  width: 100% !important;
+}
+
+.contact-submit {
+  width: 100% !important;
+  min-height: 52px !important;
+  padding: 14px 24px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  color: #000000 !important;
+  background: #ff5722 !important;
+  border: 1px solid #ff5722 !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.contact-submit:hover,
+.contact-submit:focus-visible {
+  color: #ffffff !important;
+  background: #e64a19 !important;
+  border-color: #e64a19 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* 7. Footer Layout & Copyright Fix */
+.footer-three-border {
+  padding-block: 24px clamp(60px, 12vw, 84px) !important;
+}
+
+@media screen and (max-width: 767px) {
+  .footer-copyright-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 20px !important;
+    min-height: auto !important;
+    position: static !important;
+  }
+
+  .footer-copyright-row > div:first-child {
+    position: static !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    width: auto !important;
+  }
+
+  .footer-three-back-to-top {
+    width: 68px !important;
+    height: 68px !important;
+    font-size: 1.4rem !important;
+    margin: 0 auto !important;
+    display: inline-flex !important;
+  }
+
+  .footer-copyright {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    white-space: normal !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .footer-copyright p {
+    font-size: clamp(0.85rem, 3.5vw, 1.05rem) !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    color: #ffffff !important;
+  }
+}
+
+/* 8. Floating Back-to-Top Button */
+.back-to-top-wrapper {
+  position: fixed !important;
+  right: max(20px, env(safe-area-inset-right)) !important;
+  bottom: 0 !important;
+  height: 48px !important;
+  width: 48px !important;
+  z-index: 9999 !important;
+  border-radius: 50% !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease, bottom 0.3s ease, transform 0.3s ease !important;
+}
+
+.back-to-top-wrapper.back-to-top-btn-show {
+  visibility: visible !important;
+  opacity: 1 !important;
+  bottom: max(20px, env(safe-area-inset-bottom)) !important;
+  pointer-events: auto !important;
+}
+
+.back-to-top-btn {
+  width: 48px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50% !important;
+  background: var(--main-two-600, #ff5722) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+}
+
+.back-to-top-btn:hover,
+.back-to-top-btn:focus-visible {
+  transform: translateY(-3px) scale(1.06) !important;
+  box-shadow: 0 6px 20px rgba(255, 87, 34, 0.45) !important;
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+/* 9. General Typography & Spacing Polish */
+@media screen and (max-width: 767px) {
+  .service-three-title {
+    font-size: clamp(1.35rem, 5vw, 2.1rem) !important;
+    line-height: 1.25 !important;
+  }
+
+  .skills-heading h2 {
+    font-size: clamp(1.6rem, 5vw, 2.5rem) !important;
+  }
+
+  .section-heading h2,
+  .credential-panel h2 {
+    font-size: clamp(1.5rem, 5vw, 2.4rem) !important;
+  }
+
+  .credentials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 991px) {
+  .achievements-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+}
+
+/* 10. Accessible Contact Form Styles */
+.contact-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f3f4f6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.contact-label .required-star {
+  color: var(--main-two-600, #ff5722);
+  margin-left: 3px;
+}
+
+.contact-field {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-field:focus-visible {
+  outline: 2px solid var(--main-two-600, #ff5722) !important;
+  outline-offset: 2px;
+  border-color: var(--main-two-600, #ff5722) !important;
+}
+
+.contact-field.is-invalid {
+  border-color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.08) !important;
+}
+
+.contact-error-msg {
+  display: none;
+  font-size: 0.85rem;
+  color: #f87171;
+  margin-top: 6px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.contact-field.is-invalid ~ .contact-error-msg,
+.contact-field.is-invalid + .contact-error-msg {
+  display: block;
+}
+
+#contact-status {
+  display: none;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 22px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+#contact-status.status-success {
+  display: block;
+  background: rgba(34, 197, 94, 0.15);
+  border: 1px solid rgba(34, 197, 94, 0.4);
+  color: #4ade80;
+}
+
+#contact-status.status-error {
+  display: block;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+.contact-submit:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.contact-submit .spinner-border-sm {
+  display: inline-block;
+  width: 1.15rem;
+  height: 1.15rem;
+  vertical-align: text-bottom;
+  border: 0.2em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: contact-spinner 0.75s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes contact-spinner {
+  to { transform: rotate(360deg); }
+}
+
+#contact {
+  scroll-margin-top: 100px;
+}
+
+/* 11. Accessibility Focus Visible & Reduced Motion */
+:focus-visible {
+  outline: 2px solid var(--main-two-600, #ff5722);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

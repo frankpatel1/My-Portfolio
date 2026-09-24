@@ -13,16 +13,53 @@
     />
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:title" content="Full-Stack Developer | Pune Opportunities" />
-    <meta property="og:description" content="Frank Patel builds scalable React, Node.js, Python, REST API, and cloud-ready applications." />
+    <link rel="canonical" href="https://frankpatel1.github.io/My-Portfolio/" />
+    <meta property="og:title" content="Frank Patel | Full-Stack Developer & Python Automation Engineer" />
+    <meta property="og:description" content="Frank Patel builds scalable React, Node.js, Python automation, REST APIs, and cloud-ready systems." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://frankpatel1.github.io/My-Portfolio/" />
     <meta property="og:image" content="https://frankpatel1.github.io/My-Portfolio/assets/images/shapes/banner-three-man.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Full-Stack Developer | Pune Opportunities" />
-    <meta name="twitter:description" content="Scalable React, Node.js, Python, REST API, and cloud-ready applications by Frank Patel." />
+    <meta name="twitter:title" content="Frank Patel | Full-Stack Developer & Python Automation Engineer" />
+    <meta name="twitter:description" content="Frank Patel builds scalable React, Node.js, Python automation, REST APIs, and cloud-ready systems." />
     <!-- Title -->
-    <title>Full-Stack Developer | Pune Opportunities</title>
+    <title>Frank Patel | Full-Stack Developer & Python Automation Engineer</title>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://frankpatel1.github.io/My-Portfolio/#person",
+          "name": "Frank Patel",
+          "jobTitle": "Full-Stack Developer & Python Automation Engineer",
+          "url": "https://frankpatel1.github.io/My-Portfolio/",
+          "image": "https://frankpatel1.github.io/My-Portfolio/assets/images/shapes/banner-three-man.png",
+          "sameAs": [
+            "https://github.com/frankpatel1",
+            "https://linkedin.com/in/frankpatel16"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ahmedabad",
+            "addressRegion": "Gujarat",
+            "addressCountry": "IN"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://frankpatel1.github.io/My-Portfolio/#website",
+          "url": "https://frankpatel1.github.io/My-Portfolio/",
+          "name": "Frank Patel Portfolio",
+          "description": "Portfolio of Frank Patel, Full-Stack Developer and Python Automation Engineer.",
+          "author": {
+            "@id": "https://frankpatel1.github.io/My-Portfolio/#person"
+          }
+        }
+      ]
+    }
+    </script>
     <!-- Browser tab icon -->
     <link
       rel="icon"
@@ -84,7 +121,7 @@
 
     <!-- ==================== Scroll to Top End Here ==================== -->
     <div class="back-to-top-wrapper">
-      <button id="back_to_top" type="button" class="back-to-top-btn">
+      <button id="back_to_top" type="button" class="back-to-top-btn" aria-label="Back to top">
         <svg
           width="12"
           height="7"
@@ -105,7 +142,7 @@
     <!-- ==================== Scroll to Top End Here ==================== -->
 
     <!-- ==================== Offcanvus Mobile Menu Start Here ==================== -->
-    <div class="tw-offcanvas-2-area p-relative">
+    <div id="mobile-nav-panel" class="tw-offcanvas-2-area p-relative" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
       <div class="tw-offcanvas-2-bg is-left left-box"></div>
       <div class="tw-offcanvas-2-bg is-right right-box d-none d-md-block"></div>
       <div class="tw-offcanvas-2-wrapper">
@@ -119,7 +156,7 @@
               >
             </div>
             <div class="tw-offcanvas-2-close d-md-none text-end">
-              <button class="tw-offcanvas-2-close-btn tw-offcanvas-2-close-btn">
+              <button class="tw-offcanvas-2-close-btn" type="button" aria-label="Close navigation menu">
                 <span class="text">
                   <span class="text-white">close</span>
                 </span>
@@ -151,14 +188,24 @@
             </div>
           </div>
           <div class="tw-main-menu-mobile menu-hover-active counter-row">
-            <nav></nav>
+            <nav class="tw-main-menu-content">
+              <ul>
+                <li><a href="#about" class="mobile-nav-link">About</a></li>
+                <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+                <li><a href="#portfolio" class="mobile-nav-link">Projects</a></li>
+                <li><a href="#github-projects" class="mobile-nav-link">Open Source</a></li>
+                <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                <li><a href="assets/Frank-Patel-Resume.pdf" download class="mobile-nav-link resume-btn">Resume</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
         <div
           class="tw-offcanvas-2-right right-box d-none d-md-block p-relative"
         >
           <div class="tw-offcanvas-2-close text-end">
-            <button class="tw-offcanvas-2-close-btn">
+            <button class="tw-offcanvas-2-close-btn" type="button" aria-label="Close navigation menu">
               <span class="text">
                 <span>close</span>
               </span>
@@ -236,7 +283,7 @@
             >
               <ul class="tw-gap-2">
                 <li>
-                  <a href="https://github.com/frankpatel1" target="_blank">
+                  <a href="https://github.com/frankpatel1" target="_blank" rel="noopener noreferrer">
                     <span
                       class="active-media d-flex align-items-center tw-gap-1"
                       >GITHUB <i class="ph ph-arrow-bend-up-right"></i
@@ -247,7 +294,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com/in/frankpatel16" target="_blank">
+                  <a href="https://linkedin.com/in/frankpatel16" target="_blank" rel="noopener noreferrer">
                     <span
                       class="active-media d-flex align-items-center tw-gap-1"
                       >LINKEDIN <i class="ph ph-arrow-bend-up-right"></i
@@ -290,6 +337,7 @@
                   href="https://github.com/frankpatel1"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
                   ><i class="ph-bold ph-github-logo"></i
                 ></a>
               </li>
@@ -298,6 +346,8 @@
                   class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
                   href="https://linkedin.com/in/frankpatel16"
                   target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
                   ><i class="ph-bold ph-linkedin-logo"></i
                 ></a>
               </li>
@@ -305,6 +355,7 @@
                 <a
                   class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md"
                   href="mailto:frankpatel33@gmail.com"
+                  aria-label="Email Frank Patel"
                   ><i class="ph-bold ph-envelope"></i
                 ></a>
               </li>
@@ -338,12 +389,17 @@
             <div class="header-three-menu">
               <button
                 class="tw-offcanvas-open-btn tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center tw-transition-3 tw-rounded-md"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-nav-panel"
               >
                 <span
                   ><img
                     class="tw-transition-3"
                     src="assets/images/icons/header-three-toggle.svg"
-                    alt="toggle"
+                    alt=""
+                    aria-hidden="true"
                 /></span>
               </button>
             </div>
@@ -379,7 +435,7 @@
                   >
                     <img
                       src="assets/images/shapes/banner-three-man.png"
-                      alt="Frank Patel"
+                      alt="Frank Patel - Full-Stack Developer & Python Automation Engineer"
                     />
                   </div>
                   <h1 class="banner-three-title text-black tw-mb-30">
@@ -407,7 +463,8 @@
                             <span
                               ><img
                                 src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
+                                alt=""
+                                aria-hidden="true"
                             /></span>
                             React.js Development
                           </li>
@@ -417,7 +474,8 @@
                             <span
                               ><img
                                 src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
+                                alt=""
+                                aria-hidden="true"
                             /></span>
                             Python Automation
                           </li>
@@ -427,7 +485,8 @@
                             <span
                               ><img
                                 src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
+                                alt=""
+                                aria-hidden="true"
                             /></span>
                             Web Scraping & ETL
                           </li>
@@ -437,7 +496,8 @@
                             <span
                               ><img
                                 src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
+                                alt=""
+                                aria-hidden="true"
                             /></span>
                             AWS Cloud Deployment
                           </li>
@@ -447,7 +507,8 @@
                             <span
                               ><img
                                 src="assets/images/icons/banner-three-pluse.svg"
-                                alt="pluse"
+                                alt=""
+                                aria-hidden="true"
                             /></span>
                             REST API Integration
                           </li>
@@ -552,7 +613,8 @@
                     >
                       <img
                         src="assets/images/shapes/banner-three-shape.png"
-                        alt="shape"
+                        alt=""
+                        aria-hidden="true"
                       />
                       <div class="banner-three-carcel-shape">
                         <div><span></span></div>
@@ -593,7 +655,7 @@
                       class="tw-anim-img w-100 tw-rounded-lg"
                       data-animate="true"
                       src="assets/images/thumbs/about-three-thumb.jpg"
-                      alt="thumb"
+                      alt="Frank Patel working on software development and automation solutions"
                     />
                   </div>
                 </div>
@@ -708,7 +770,8 @@
             <img
               class="about-three-shape position-absolute start-0 w-100"
               src="assets/images/shapes/about-three-shape.png"
-              alt="shape"
+              alt=""
+              aria-hidden="true"
             />
           </div>
         </section>
@@ -777,7 +840,8 @@
                             <img
                               class="tw-transition-3"
                               src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow"
+                              alt=""
+                              aria-hidden="true"
                           /></span>
                         </div>
                         <div>
@@ -795,21 +859,21 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >React.js</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >Node.js</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >MongoDB</a
                                 >
                               </li>
@@ -818,10 +882,10 @@
                         </div>
                       </div>
                       <div class="service-three-thumb">
-                        <a href="#services"
+                        <a href="#portfolio" aria-label="View Full-Stack Web Development projects"
                           ><img
                             src="assets/images/thumbs/service-three-thumb1.png"
-                            alt="thumb1"
+                            alt="Full-Stack Web Development service preview with React and Node.js"
                         /></a>
                       </div>
                     </div>
@@ -843,7 +907,8 @@
                             <img
                               class="tw-transition-3"
                               src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow"
+                              alt=""
+                              aria-hidden="true"
                           /></span>
                         </div>
                         <div>
@@ -861,21 +926,21 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >Workflow Automation</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >ETL Pipelines</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >CI/CD</a
                                 >
                               </li>
@@ -884,10 +949,10 @@
                         </div>
                       </div>
                       <div class="service-three-thumb">
-                        <a href="#services"
+                        <a href="#portfolio" aria-label="View Python Automation projects"
                           ><img
                             src="assets/images/thumbs/service-three-thumb2.png"
-                            alt="thumb1"
+                            alt="Python Automation & Scripting service preview"
                         /></a>
                       </div>
                     </div>
@@ -909,7 +974,8 @@
                             <img
                               class="tw-transition-3"
                               src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow"
+                              alt=""
+                              aria-hidden="true"
                           /></span>
                         </div>
                         <div>
@@ -925,21 +991,21 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >BeautifulSoup</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >Selenium</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >KPI Dashboards</a
                                 >
                               </li>
@@ -948,10 +1014,10 @@
                         </div>
                       </div>
                       <div class="service-three-thumb">
-                        <a href="#services"
+                        <a href="#portfolio" aria-label="View Web Scraping & Data Extraction projects"
                           ><img
                             src="assets/images/thumbs/service-three-thumb3.png"
-                            alt="thumb1"
+                            alt="Web Scraping & Data Extraction service preview"
                         /></a>
                       </div>
                     </div>
@@ -973,7 +1039,8 @@
                             <img
                               class="tw-transition-3"
                               src="assets/images/icons/service-three-arrow.svg"
-                              alt="arrow"
+                              alt=""
+                              aria-hidden="true"
                           /></span>
                         </div>
                         <div>
@@ -991,21 +1058,21 @@
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >Scalable Architecture</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >RESTful APIs</a
                                 >
                               </li>
                               <li>
                                 <a
                                   class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
-                                  href="#"
+                                  href="#skills"
                                   >CI/CD Pipelines</a
                                 >
                               </li>
@@ -1014,10 +1081,10 @@
                         </div>
                       </div>
                       <div class="service-three-thumb">
-                        <a href="#services"
+                        <a href="#portfolio" aria-label="View AWS Cloud & API Integration projects"
                           ><img
                             src="assets/images/thumbs/service-three-thumb4.png"
-                            alt="thumb1"
+                            alt="AWS Cloud & API Integration service preview"
                         /></a>
                       </div>
                     </div>
@@ -1034,6 +1101,7 @@
                 <div
                   class="portfolio-three-wrapper d-flex justify-content-between flex-wrap align-items-start position-relative z-1"
                 >
+                  <!-- Project 1 -->
                   <div
                     class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
                   >
@@ -1055,30 +1123,35 @@
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >PYTHON</a
                               >
                             </li>
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >AUTOMATION</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#skills"
+                                >ETL PIPELINES</a
                               >
                             </li>
                           </ul>
                         </div>
                         <p class="portfolio-card-description">Automates data collection, cleaning, and ETL workflows with Python to eliminate repetitive manual work and deliver reliable structured outputs.</p>
                       </div>
-                      <div>
-                        <div class="portfolio-three-button">
-                          <a class="portfolio-case-study-link" href="case-studies/automation-web-scraping.html" target="_blank" rel="noopener noreferrer">Read case study</a>
-                          <a
-                            class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                            href="#portfolio"
-                            ><i class="ph ph-arrow-up-right"></i
-                          ></a>
-                          </div>
+                      <div class="portfolio-three-button">
+                        <a
+                          class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                          href="#portfolio"
+                          aria-label="View Automation & Web Scraping Suite project"
+                          ><i class="ph ph-arrow-up-right"></i
+                        ></a>
                       </div>
                     </div>
                     <div
@@ -1088,13 +1161,16 @@
                       <a
                         class="d-block cursor-hide tw-rounded-lg"
                         href="#portfolio"
+                        aria-label="View Automation & Web Scraping Suite project"
                         ><img
                           class="w-100 tw-rounded-lg"
                           src="assets/images/thumbs/portfolio-three-thumb1.jpg"
-                          alt="thumb"
+                          alt="Automation & Web Scraping Suite Dashboard Interface"
                       /></a>
                     </div>
                   </div>
+
+                  <!-- Project 2 -->
                   <div
                     class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
                   >
@@ -1116,15 +1192,22 @@
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >DATA</a
                               >
                             </li>
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >BUSINESS INTELLIGENCE</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#skills"
+                                >REACT.JS</a
                               >
                             </li>
                           </ul>
@@ -1135,10 +1218,10 @@
                         </p>
                       </div>
                       <div class="portfolio-three-button">
-                        <a class="portfolio-case-study-link" href="case-studies/kpi-dashboard.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                         <a
                           class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                           href="#portfolio"
+                          aria-label="View KPI Dashboard Platform project"
                           ><i class="ph ph-arrow-up-right"></i
                         ></a>
                       </div>
@@ -1150,13 +1233,16 @@
                       <a
                         class="d-block cursor-hide tw-rounded-lg"
                         href="#portfolio"
+                        aria-label="View KPI Dashboard Platform project"
                         ><img
                           class="w-100 tw-rounded-lg"
                           src="assets/images/thumbs/portfolio-three-thumb2.jpg"
-                          alt="thumb"
+                          alt="KPI Executive Dashboard Platform Analytics Screen"
                       /></a>
                     </div>
                   </div>
+
+                  <!-- Project 3 -->
                   <div
                     class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
                   >
@@ -1178,15 +1264,22 @@
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >REACT.JS</a
                               >
                             </li>
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >AWS</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#skills"
+                                >PERFORMANCE</a
                               >
                             </li>
                           </ul>
@@ -1194,10 +1287,10 @@
                         <p class="portfolio-card-description">Combines reusable React components, dynamic interfaces, and responsive performance patterns for a scalable product experience.</p>
                       </div>
                       <div class="portfolio-three-button">
-                        <a class="portfolio-case-study-link" href="case-studies/react-web-app.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                         <a
                           class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                           href="#portfolio"
+                          aria-label="View Scalable React Web App project"
                           ><i class="ph ph-arrow-up-right"></i
                         ></a>
                       </div>
@@ -1209,13 +1302,16 @@
                       <a
                         class="d-block cursor-hide tw-rounded-lg"
                         href="#portfolio"
+                        aria-label="View Scalable React Web App project"
                         ><img
                           class="w-100 tw-rounded-lg"
                           src="assets/images/thumbs/portfolio-three-thumb3.jpg"
-                          alt="thumb"
+                          alt="Scalable React Web Application User Interface"
                       /></a>
                     </div>
                   </div>
+
+                  <!-- Project 4 -->
                   <div
                     class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper"
                   >
@@ -1237,15 +1333,22 @@
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
+                                href="#skills"
                                 >NODE.JS</a
                               >
                             </li>
                             <li>
                               <a
                                 class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
-                                href="#"
-                                >API INTEGRATION</a
+                                href="#skills"
+                                >REDIS</a
+                              >
+                            </li>
+                            <li>
+                              <a
+                                class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                                href="#skills"
+                                >API GATEWAY</a
                               >
                             </li>
                           </ul>
@@ -1253,10 +1356,10 @@
                         <p class="portfolio-card-description">Connects front-end experiences to reliable REST endpoints with clear validation, loading states, and integration-ready data flows.</p>
                       </div>
                       <div class="portfolio-three-button">
-                        <a class="portfolio-case-study-link" href="case-studies/rest-api-platform.html" target="_blank" rel="noopener noreferrer">Read case study</a>
                         <a
                           class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
                           href="#portfolio"
+                          aria-label="View REST API Integration Platform project"
                           ><i class="ph ph-arrow-up-right"></i
                         ></a>
                       </div>
@@ -1268,10 +1371,11 @@
                       <a
                         class="d-block cursor-hide tw-rounded-lg"
                         href="#portfolio"
+                        aria-label="View REST API Integration Platform project"
                         ><img
                           class="w-100 tw-rounded-lg"
                           src="assets/images/thumbs/portfolio-three-thumb4.jpg"
-                          alt="thumb"
+                          alt="REST API Integration Platform Architecture & Endpoints"
                       /></a>
                     </div>
                   </div>
@@ -1293,9 +1397,9 @@
               </p>
             </div>
             <div class="github-project-filters" role="group" aria-label="Filter GitHub projects">
-              <button class="github-project-filter is-active" type="button" data-filter="all">All</button>
-              <button class="github-project-filter" type="button" data-filter="javascript">JavaScript</button>
-              <button class="github-project-filter" type="button" data-filter="html-css">HTML/CSS</button>
+              <button class="github-project-filter is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="github-project-filter" type="button" data-filter="javascript" aria-pressed="false">JavaScript</button>
+              <button class="github-project-filter" type="button" data-filter="html-css" aria-pressed="false">HTML/CSS</button>
             </div>
             <div class="github-projects-grid">
               <article class="github-project-card github-project-card-featured" data-category="javascript html-css">
@@ -2026,7 +2130,7 @@
                       <img
                         class="tw-rounded-lg w-100"
                         src="assets/images/thumbs/footer-three-thumb.jpg"
-                        alt="Frank Patel"
+                        alt="Frank Patel - Full-Stack Developer Profile Photo"
                       />
                     </div>
                     <div
@@ -2045,6 +2149,8 @@
                               class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
                               href="https://github.com/frankpatel1"
                               target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="GitHub Profile"
                               ><i class="ph ph-github-logo"></i
                             ></a>
                           </li>
@@ -2053,6 +2159,8 @@
                               class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
                               href="https://linkedin.com/in/frankpatel16"
                               target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="LinkedIn Profile"
                               ><i class="ph ph-linkedin-logo"></i
                             ></a>
                           </li>
@@ -2060,6 +2168,7 @@
                             <a
                               class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
                               href="mailto:frankpatel33@gmail.com"
+                              aria-label="Email Frank Patel"
                               ><i class="ph ph-envelope"></i
                             ></a>
                           </li>
@@ -2076,43 +2185,68 @@
                   data-aos-duration="1000"
                   data-aos-delay="300"
                 >
-                  <form action="#">
+                  <form id="contact-form" action="https://formspree.io/f/mbglydro" method="POST" novalidate>
+                    <input type="hidden" name="_subject" id="contact-subject" value="New Portfolio Inquiry" />
+                    <div id="contact-status" role="alert" aria-live="polite"></div>
                     <div class="row">
                       <div class="col-xl-12">
-                        <div class="position-relative tw-mb-7">
+                        <div class="position-relative tw-mb-6">
+                          <label for="contact-name" class="contact-label">Your Name <span class="required-star">*</span></label>
                           <input
                             type="text"
-                            class="form-control contact-field bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 tw-h-18"
-                            placeholder="First Name"
-                            aria-label="First Name"
+                            id="contact-name"
+                            name="name"
+                            autocomplete="name"
+                            required
+                            class="form-control contact-field bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-7 tw-placeholder-text-neutral-100 tw-h-18"
+                            placeholder="e.g. John Doe"
+                            aria-required="true"
+                            aria-describedby="name-error"
                           />
+                          <span id="name-error" class="contact-error-msg" role="alert">Please enter your name (at least 2 characters).</span>
                         </div>
                       </div>
                       <div class="col-xl-12">
-                        <div class="position-relative tw-mb-7">
+                        <div class="position-relative tw-mb-6">
+                          <label for="contact-email" class="contact-label">Email Address <span class="required-star">*</span></label>
                           <input
                             type="email"
-                            class="form-control contact-field bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 tw-h-18"
-                            placeholder="Email Address"
-                            aria-label="Email Address"
+                            id="contact-email"
+                            name="_replyto"
+                            autocomplete="email"
+                            required
+                            class="form-control contact-field bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-7 tw-placeholder-text-neutral-100 tw-h-18"
+                            placeholder="e.g. john@example.com"
+                            aria-required="true"
+                            aria-describedby="email-error"
                           />
+                          <span id="email-error" class="contact-error-msg" role="alert">Please enter a valid email address.</span>
                         </div>
                       </div>
                       <div class="col-xl-12">
-                        <div class="position-relative tw-mb-7">
+                        <div class="position-relative tw-mb-6">
+                          <label for="contact-message" class="contact-label">Your Message <span class="required-star">*</span></label>
                           <textarea
-                            class="form-control contact-field tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100"
-                            placeholder="Message"
-                            aria-label="Message"
+                            id="contact-message"
+                            name="message"
+                            required
+                            rows="5"
+                            class="form-control contact-field tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-7 tw-placeholder-text-neutral-100"
+                            placeholder="Tell me about your project or opportunity..."
+                            aria-required="true"
+                            aria-describedby="message-error"
                           ></textarea>
+                          <span id="message-error" class="contact-error-msg" role="alert">Please enter a message (at least 10 characters).</span>
                         </div>
                       </div>
                       <div class="col-xl-12">
                         <div class="contact-button">
                           <button
-                            class="contact-submit tw-hover-btn text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center w-100 tw-rounded-lg"
+                            type="submit"
+                            id="contact-submit-btn"
+                            class="contact-submit tw-hover-btn text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center align-items-center w-100 tw-rounded-lg"
                           >
-                            submit message
+                            <span class="btn-text">Submit Message</span>
                           </button>
                         </div>
                       </div>
@@ -2127,22 +2261,11 @@
               <div class="row">
                 <div class="col-xl-12">
                   <div
-                    class="footer-three-middile footer-copyright-row d-flex align-items-center justify-content-between"
+                    class="footer-three-middile footer-copyright-row d-flex align-items-center justify-content-center"
                   >
-                    <div
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                      data-aos-delay="300"
-                    >
-                      <a
-                        class="footer-three-back-to-top tw-w-170 tw-h-170 lh-1 d-inline-flex justify-content-center align-items-center bg-main-two-600 text-white tw-text-3xl rounded-circle"
-                        href="#home"
-                        ><i class="ph ph-arrow-up"></i
-                      ></a>
-                    </div>
                     <div class="footer-copyright text-center">
                       <p class="tw-text-lg text-white">
-                        © 2026. All rights reserved By Frank Patel
+                        © 2026. All Rights Reserved By Frank Patel
                       </p>
                     </div>
                   </div>
@@ -2154,7 +2277,8 @@
             <img
               class="position-absolute top-0 start-0 z-n1"
               src="assets/images/shapes/footer-three-bg-shape.png"
-              alt="shape"
+              alt=""
+              aria-hidden="true"
             />
           </div>
         </section>
@@ -2168,7 +2292,11 @@
         filterButtons.forEach((button) => {
           button.addEventListener("click", () => {
             const filter = button.dataset.filter;
-            filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+            filterButtons.forEach((item) => {
+              const active = item === button;
+              item.classList.toggle("is-active", active);
+              item.setAttribute("aria-pressed", active ? "true" : "false");
+            });
             cards.forEach((card) => {
               const matches = filter === "all" || card.dataset.category?.includes(filter);
               card.classList.toggle("is-hidden", !matches);

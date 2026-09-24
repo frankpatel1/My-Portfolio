@@ -28,42 +28,66 @@
 
   ////////////////////////////////////////////////////
   // 01. PreLoader Js
+  function dismissPreloader() {
+    const preloader = document.querySelector(".preloader");
+    if (preloader && preloader.style.display !== "none") {
+      preloader.style.transition = "opacity 0.4s ease";
+      preloader.style.opacity = "0";
+      setTimeout(() => {
+        preloader.style.display = "none";
+        preloader.style.zIndex = "-1";
+      }, 400);
+    }
+  }
+
+  // Failsafe timer so preloader never permanently blocks the site if animations fail
+  setTimeout(dismissPreloader, 2800);
+
   document.addEventListener("DOMContentLoaded", () => {
-    // Create GSAP timeline
-    const tl = gsap.timeline();
-    const svg = document.getElementById("preloaderSvg");
-    const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-    const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
-    // Text animation
-    tl.to(".preloader-heading .load-text, .preloader-heading .cont", {
-      delay: 1,
-      y: -80,
-      opacity: 0,
-      duration: 0.6,
-    })
-      // SVG curve animation
-      .to(svg, {
-        duration: 0.6,
-        attr: { d: curve },
-        ease: "power2.inOut",
-      })
-      // Flatten SVG
-      .to(svg, {
-        duration: 0.6,
-        attr: { d: flat },
-        ease: "power2.inOut",
-      })
-      // Slide preloader up
-      .to(".preloader", {
-        y: "-130%",
-        duration: 0.8,
-        ease: "power4.inOut",
-      })
-      // Remove from DOM flow
-      .set(".preloader", {
-        display: "none",
-        zIndex: -1,
-      });
+    try {
+      if (typeof gsap !== "undefined") {
+        // Create GSAP timeline
+        const tl = gsap.timeline();
+        const svg = document.getElementById("preloaderSvg");
+        const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
+        const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
+        // Text animation
+        tl.to(".preloader-heading .load-text, .preloader-heading .cont", {
+          delay: 0.8,
+          y: -80,
+          opacity: 0,
+          duration: 0.5,
+        })
+          // SVG curve animation
+          .to(svg, {
+            duration: 0.5,
+            attr: { d: curve },
+            ease: "power2.inOut",
+          })
+          // Flatten SVG
+          .to(svg, {
+            duration: 0.5,
+            attr: { d: flat },
+            ease: "power2.inOut",
+          })
+          // Slide preloader up
+          .to(".preloader", {
+            y: "-130%",
+            duration: 0.7,
+            ease: "power4.inOut",
+          })
+          // Remove from DOM flow
+          .set(".preloader", {
+            display: "none",
+            zIndex: -1,
+          });
+      } else {
+        dismissPreloader();
+      }
+    } catch (err) {
+      console.warn("Preloader animation fallback activated:", err);
+      dismissPreloader();
+    }
   });
 
   ////////////////////////////////////////////////////
@@ -178,38 +202,74 @@
 
   ////////////////////////////////////////////////////
   // 04. offcanvas Menu JS
-  $(".tw-offcanvas-open-btn").on("click", function () {
-    $(".tw-offcanvas-2-area").addClass("opened");
+  function openOffcanvasMenu() {
+    $(".tw-offcanvas-2-area").addClass("opened").attr("aria-hidden", "false");
+    $(".tw-offcanvas-open-btn").attr("aria-expanded", "true");
+    $(".side-overlay, .overlay, .body-overlay").addClass("show opened apply");
+    $("body").addClass("tw-offcanvas-opened");
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     setTimeout(() => {
       $(".tw-text-hover-effect-word").addClass("animated-text");
-    }, 900);
+      const closeBtn = document.querySelector(".tw-offcanvas-2-close-btn");
+      if (closeBtn) closeBtn.focus();
+    }, 300);
+  }
+
+  function closeOffcanvasMenu() {
+    setTimeout(() => {
+      $(".tw-text-hover-effect-word").removeClass("animated-text");
+    }, 1200);
+
+    $(".tw-offcanvas-2-area").removeClass("opened").attr("aria-hidden", "true");
+    $(".tw-offcanvas-open-btn").attr("aria-expanded", "false");
+    $(".side-overlay, .overlay, .body-overlay").removeClass("show opened apply");
+    $("body").removeClass("tw-offcanvas-opened");
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+
+    const openBtn = document.querySelector(".tw-offcanvas-open-btn");
+    if (openBtn) openBtn.focus();
+  }
+
+  $(".tw-offcanvas-open-btn").on("click", function () {
+    openOffcanvasMenu();
   });
 
   ////////////////////////////////////////////////////
   // 05. offcanvas two Menu JS
   $(".tw-offcanvas-2-close-btn").on("click", function () {
-    setTimeout(() => {
-      $(".tw-text-hover-effect-word").removeClass("animated-text");
-    }, 1200);
+    closeOffcanvasMenu();
+  });
 
-    $(".tw-offcanvas-2-area").removeClass("opened");
-    $(".body-overlay").removeClass("opened");
+  // Close mobile navigation when backdrop overlay is clicked
+  $(".side-overlay, .overlay, .body-overlay").on("click", function () {
+    closeOffcanvasMenu();
+    $(".twoffcanvas").removeClass("opened");
+  });
+
+  // Close mobile navigation when any menu link is tapped
+  $(document).on("click", ".tw-main-menu-mobile a, .mobile-nav-link", function () {
+    closeOffcanvasMenu();
+  });
+
+  // Close mobile menu on Escape key
+  $(document).on("keydown", function (e) {
+    if (e.key === "Escape" && $(".tw-offcanvas-2-area").hasClass("opened")) {
+      closeOffcanvasMenu();
+    }
   });
 
   ////////////////////////////////////////////////////
   // 06. Sidebar Js
   $(".tw-menu-bar").on("click", function () {
     $(".twoffcanvas").addClass("opened");
-    $(".body-overlay").addClass("apply");
+    $(".body-overlay, .side-overlay").addClass("apply show");
   });
   $(".close-btn").on("click", function () {
     $(".twoffcanvas").removeClass("opened");
-    $(".body-overlay").removeClass("apply");
-  });
-  $(".body-overlay").on("click", function () {
-    $(".twoffcanvas").removeClass("opened");
-    $(".body-overlay").removeClass("apply");
+    $(".body-overlay, .side-overlay").removeClass("apply show");
   });
 
   ////////////////////////////////////////////////////
@@ -360,5 +420,131 @@
     }
 
     initRipples();
+  });
+
+  ////////////////////////////////////////////////////
+  // 15. Contact Form AJAX & Accessible Validation
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
+    if (!contactForm) return;
+
+    const nameInput = document.getElementById("contact-name");
+    const emailInput = document.getElementById("contact-email");
+    const messageInput = document.getElementById("contact-message");
+    const statusBox = document.getElementById("contact-status");
+    const submitBtn = document.getElementById("contact-submit-btn");
+
+    function setFieldValidity(field, isValid) {
+      if (!field) return;
+      field.classList.toggle("is-invalid", !isValid);
+      field.setAttribute("aria-invalid", isValid ? "false" : "true");
+    }
+
+    // Clear validation error when user begins typing
+    [nameInput, emailInput, messageInput].forEach((input) => {
+      if (!input) return;
+      input.addEventListener("input", () => {
+        if (input.classList.contains("is-invalid")) {
+          setFieldValidity(input, true);
+        }
+      });
+    });
+
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      let hasError = false;
+      let firstErrorField = null;
+
+      const nameVal = nameInput ? nameInput.value.trim() : "";
+      const emailVal = emailInput ? emailInput.value.trim() : "";
+      const messageVal = messageInput ? messageInput.value.trim() : "";
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!nameVal || nameVal.length < 2) {
+        setFieldValidity(nameInput, false);
+        hasError = true;
+        if (!firstErrorField) firstErrorField = nameInput;
+      } else {
+        setFieldValidity(nameInput, true);
+      }
+
+      if (!emailVal || !emailRegex.test(emailVal)) {
+        setFieldValidity(emailInput, false);
+        hasError = true;
+        if (!firstErrorField) firstErrorField = emailInput;
+      } else {
+        setFieldValidity(emailInput, true);
+      }
+
+      if (!messageVal || messageVal.length < 10) {
+        setFieldValidity(messageInput, false);
+        hasError = true;
+        if (!firstErrorField) firstErrorField = messageInput;
+      } else {
+        setFieldValidity(messageInput, true);
+      }
+
+      if (hasError) {
+        if (firstErrorField) firstErrorField.focus();
+        if (statusBox) {
+          statusBox.className = "status-error";
+          statusBox.textContent = "Please complete all required fields correctly before submitting.";
+        }
+        return;
+      }
+
+      // Submit state
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="spinner-border-sm" aria-hidden="true"></span> Sending...';
+      }
+      if (statusBox) {
+        statusBox.className = "";
+        statusBox.textContent = "";
+      }
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          if (statusBox) {
+            statusBox.className = "status-success";
+            statusBox.textContent = "Thank you! Your message has been sent successfully. Frank will get back to you shortly.";
+          }
+          contactForm.reset();
+        } else {
+          throw new Error("Form submission response not ok");
+        }
+      } catch (err) {
+        // Safe fallback to direct mailto
+        const mailtoUrl =
+          "mailto:frankpatel33@gmail.com?subject=Portfolio%20Inquiry%20from%20" +
+          encodeURIComponent(nameVal) +
+          "&body=" +
+          encodeURIComponent(messageVal + "\n\nFrom: " + nameVal + " (" + emailVal + ")");
+
+        if (statusBox) {
+          statusBox.className = "status-error";
+          statusBox.innerHTML =
+            'Direct submission encountered a temporary issue. You can <a href="' +
+            mailtoUrl +
+            '" style="text-decoration:underline;color:#ffffff;font-weight:600;">click here to email Frank directly</a> with your message.';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span class="btn-text">Submit Message</span>';
+        }
+      }
+    });
   });
 })(jQuery);
