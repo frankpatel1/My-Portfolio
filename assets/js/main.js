@@ -28,67 +28,24 @@
 
   ////////////////////////////////////////////////////
   // 01. PreLoader Js
+  // High-performance preloader is managed via the isolated hardware-accelerated script.
   function dismissPreloader() {
-    const preloader = document.querySelector(".preloader");
+    const preloader = document.getElementById("preloader") || document.querySelector(".preloader");
     if (preloader && preloader.style.display !== "none") {
-      preloader.style.transition = "opacity 0.4s ease";
-      preloader.style.opacity = "0";
+      preloader.classList.add("slide-up");
+      document.body.classList.remove("preloader-active");
+      document.body.style.overflow = "";
       setTimeout(() => {
         preloader.style.display = "none";
-        preloader.style.zIndex = "-1";
-      }, 400);
+        if (preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
+      }, 750);
     }
   }
 
-  // Failsafe timer so preloader never permanently blocks the site if animations fail
-  setTimeout(dismissPreloader, 2800);
-
-  document.addEventListener("DOMContentLoaded", () => {
-    try {
-      if (typeof gsap !== "undefined") {
-        // Create GSAP timeline
-        const tl = gsap.timeline();
-        const svg = document.getElementById("preloaderSvg");
-        const curve = "M0 502S175 272 500 272s500 230 500 230V0H0Z";
-        const flat = "M0 2S175 1 500 1s500 1 500 1V0H0Z";
-        // Text animation
-        tl.to(".preloader-heading .load-text, .preloader-heading .cont", {
-          delay: 0.8,
-          y: -80,
-          opacity: 0,
-          duration: 0.5,
-        })
-          // SVG curve animation
-          .to(svg, {
-            duration: 0.5,
-            attr: { d: curve },
-            ease: "power2.inOut",
-          })
-          // Flatten SVG
-          .to(svg, {
-            duration: 0.5,
-            attr: { d: flat },
-            ease: "power2.inOut",
-          })
-          // Slide preloader up
-          .to(".preloader", {
-            y: "-130%",
-            duration: 0.7,
-            ease: "power4.inOut",
-          })
-          // Remove from DOM flow
-          .set(".preloader", {
-            display: "none",
-            zIndex: -1,
-          });
-      } else {
-        dismissPreloader();
-      }
-    } catch (err) {
-      console.warn("Preloader animation fallback activated:", err);
-      dismissPreloader();
-    }
-  });
+  // Backup fallback ensures the preloader never blocks the user
+  setTimeout(dismissPreloader, 3500);
 
   ////////////////////////////////////////////////////
   // Skills scroll reveal
