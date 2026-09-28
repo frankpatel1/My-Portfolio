@@ -1,0 +1,16 @@
+{
+  "name": "Frank Patel | Full-Stack Developer & Python Automation Engineer",
+  "short_name": "Frank Patel",
+  "description": "Portfolio of Frank Patel, Full-Stack Developer and Python Automation Engineer specializing in React, Node.js, Python automation, and AWS.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#02090f",
+  "theme_color": "#02090f",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

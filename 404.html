@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | Frank Patel</title>
+    <meta
+      name="description"
+      content="The page you are looking for does not exist or has been moved. Explore Frank Patel's full-stack development and Python automation portfolio."
+    />
+    <meta name="robots" content="NOINDEX,FOLLOW" />
+    <meta name="theme-color" content="#02090f" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="404 - Page Not Found | Frank Patel" />
+    <meta property="og:description" content="The page you are looking for could not be found. Return to Frank Patel's portfolio." />
+    <meta property="og:image" content="https://frankpatel1.github.io/My-Portfolio/assets/images/og-preview.png" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="alternate icon" href="apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Bootstrap & CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/production-enhancements.css" />
+
+    <style>
+      body {
+        background-color: #02090f;
+        color: #e2e8f0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0;
+      }
+      .error-header {
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .brand-logo {
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+      }
+      .brand-logo span {
+        color: #e5a100;
+      }
+      .error-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        flex: 1;
+      }
+      .error-card {
+        max-width: 640px;
+        width: 100%;
+        text-align: center;
+        background: rgba(13, 23, 33, 0.75);
+        border: 1px solid rgba(229, 161, 0, 0.22);
+        backdrop-filter: blur(16px);
+        border-radius: 24px;
+        padding: 48px 32px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      }
+      .error-code {
+        font-size: 6rem;
+        font-weight: 900;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        background: linear-gradient(135deg, #ffb703 0%, #e5a100 50%, #ff4500 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+      }
+      .error-badge {
+        display: inline-block;
+        background: rgba(239, 68, 68, 0.12);
+        border: 1px solid rgba(239, 68, 68, 0.35);
+        color: #f87171;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+      }
+      .error-title {
+        font-size: 1.85rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 14px;
+      }
+      .error-desc {
+        color: #cbd5e1;
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+      .error-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+      }
+      .btn-home {
+        background: linear-gradient(135deg, #ffb703 0%, #e5a100 100%);
+        color: #02090f;
+        font-weight: 800;
+        padding: 12px 28px;
+        border-radius: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.88rem;
+        box-shadow: 0 4px 20px rgba(229, 161, 0, 0.4);
+        transition: all 0.25s ease;
+      }
+      .btn-home:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 26px rgba(229, 161, 0, 0.6);
+        color: #000000;
+      }
+      .btn-contact {
+        background: transparent;
+        color: #cbd5e1;
+        font-weight: 700;
+        padding: 12px 26px;
+        border-radius: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.88rem;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.25s ease;
+      }
+      .btn-contact:hover {
+        color: #ffffff;
+        border-color: rgba(229, 161, 0, 0.5);
+        background: rgba(229, 161, 0, 0.08);
+        transform: translateY(-2px);
+      }
+      .quick-links {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 24px;
+      }
+      .quick-links-title {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: #94a3b8;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      .quick-links-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 0;
+        list-style: none;
+        margin: 0;
+      }
+      .quick-links-list a {
+        color: #ffc02e;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+      .quick-links-list a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+      .error-footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 20px 0;
+        text-align: center;
+        color: #64748b;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Bar -->
+    <header class="error-header">
+      <div class="container d-flex justify-content-between align-items-center">
+        <a href="index.html" class="brand-logo">FRANK <span>PATEL</span></a>
+        <a href="index.html" class="btn-contact" style="padding: 6px 16px; font-size: 0.8rem;">
+          Portfolio Home
+        </a>
+      </div>
+    </header>
+
+    <!-- Main 404 Center -->
+    <main class="error-main">
+      <div class="error-card">
+        <span class="error-badge">HTTP 404 Error</span>
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-desc">
+          The page or endpoint you are trying to reach doesn't exist, has been moved, or is temporarily unavailable. Let's get you back on track!
+        </p>
+
+        <div class="error-actions">
+          <a href="index.html" class="btn-home">Return to Homepage</a>
+          <a href="index.html#contact" class="btn-contact">Contact Frank</a>
+        </div>
+
+        <div class="quick-links">
+          <div class="quick-links-title">Quick Navigation</div>
+          <ul class="quick-links-list">
+            <li><a href="index.html#portfolio">Featured Projects</a></li>
+            <li><a href="index.html#skills">Tech Stack</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="assets/Frank-Patel-Resume.pdf" download="Frank_Patel_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="error-footer">
+      <div class="container">
+        <p>© 2026 Frank Patel. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/portfolio-features.js"></script>
+  </body>
+</html>

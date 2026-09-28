@@ -1,0 +1,632 @@
+/**
+ * Legal & Compliance Pages Stylesheet
+ * Strictly mirrors CAREER ROADMAP & EDUCATION sections (#0d0f12 base, #16191f cards, #ff4500 accents)
+ */
+
+body.legal-page {
+  background-color: #0d0f12;
+  color: #d1d5db;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header & Navigation */
+.legal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(13, 15, 18, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 18px 0;
+}
+
+.legal-brand-logo {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.legal-brand-logo span {
+  color: #ff4500;
+}
+
+.legal-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #f3f4f6;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #1f1f23;
+  border: 1px solid #2e2e33;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.legal-back-btn:hover {
+  background: #ff4500;
+  border-color: #ff4500;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(255, 69, 0, 0.35);
+}
+
+/* Hero Section */
+.legal-hero {
+  padding: 72px 0 36px;
+  text-align: center;
+}
+
+/* Eyebrow Pill: Exactly matches .experience-eyebrow */
+.legal-eyebrow-pill {
+  display: inline-block;
+  color: #ff4500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding: 0.38rem 1rem;
+  background: rgba(255, 69, 0, 0.1);
+  border: 1px solid rgba(255, 69, 0, 0.35);
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+.legal-hero-title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.legal-hero-meta {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Clauses Bento Layout */
+.legal-content-grid {
+  max-width: 920px;
+  margin: 20px auto 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Clause Card: Mirrors .experience-card (#16191f surface + #242424 border) */
+.legal-card {
+  background-color: #16191f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: clamp(1.75rem, 3vw, 2.25rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.legal-card:hover {
+  transform: translateY(-3px);
+  border-color: #ff4500;
+  box-shadow: 0 12px 28px rgba(255, 69, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.legal-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1.1rem;
+}
+
+/* Clause Number Badge */
+.legal-clause-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(255, 69, 0, 0.12);
+  border: 1px solid rgba(255, 69, 0, 0.3);
+  color: #ff4500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.legal-card-title {
+  color: #ffffff;
+  font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.legal-card-body p {
+  color: #d1d5db;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.legal-card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-card-body ul {
+  padding-left: 20px;
+  margin: 12px 0 16px;
+}
+
+.legal-card-body li {
+  color: #cbd5e1;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.legal-card-body li strong {
+  color: #ffffff;
+}
+
+/* Hyperlinks in legal body */
+.legal-link {
+  color: #ff4500;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid rgba(255, 69, 0, 0.35);
+}
+
+.legal-link:hover {
+  color: #ff784e;
+  border-bottom-color: #ff784e;
+}
+
+/* Contact Details Strip inside legal cards */
+.legal-contact-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 16px 20px;
+  background: #101217;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+}
+
+.legal-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #9ca3af;
+  font-size: 0.92rem;
+}
+
+.legal-contact-item i {
+  color: #ff4500;
+  font-size: 1.15rem;
+}
+
+/* Footer Consistency */
+.legal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 36px 0;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.88rem;
+  background: #090a0d;
+}
+
+.legal-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.legal-footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.legal-footer-links a:hover {
+  color: #ff4500;
+}
+
+.legal-footer-divider {
+  color: #374151;
+  font-size: 0.8rem;
+}
+
+/* ==========================================
+   Cookie Banner & Preferences Modal Integration
+   (Strictly mirrors CAREER ROADMAP & EDUCATION)
+   ========================================== */
+.cookie-consent-banner {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  max-width: 460px;
+  width: calc(100% - 32px);
+  background: #16191f;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 69, 0, 0.15);
+  z-index: 999999;
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.cookie-consent-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.cookie-consent-banner.is-hiding {
+  opacity: 0;
+  transform: translateY(16px) scale(0.96);
+  pointer-events: none;
+}
+
+.cookie-consent-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 69, 0, 0.12);
+  border: 1px solid rgba(255, 69, 0, 0.35);
+  color: #ff4500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.cookie-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse-cookie-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-cookie-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+.cookie-consent-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d1d5db;
+  margin-bottom: 16px;
+}
+
+.cookie-policy-link {
+  color: #ff4500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.cookie-policy-link:hover {
+  color: #ff784e;
+}
+
+.cookie-consent-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cookie-btn {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+}
+
+.cookie-btn-primary {
+  background: #ff4500;
+  color: #ffffff;
+  border-color: #ff4500;
+  box-shadow: 0 4px 14px rgba(255, 69, 0, 0.35);
+}
+
+.cookie-btn-primary:hover {
+  background: #e03d00;
+  border-color: #e03d00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.5);
+  color: #ffffff;
+}
+
+.cookie-btn-outline {
+  background: #1f1f23;
+  color: #d1d5db;
+  border: 1px solid #2e2e33;
+}
+
+.cookie-btn-outline:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: #2a2a30;
+  transform: translateY(-2px);
+}
+
+/* Modal Backdrop */
+.cookie-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-modal-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Modal Dialog */
+.cookie-modal-container {
+  background: #16191f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  max-width: 580px;
+  width: 100%;
+  padding: clamp(20px, 4vw, 32px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 69, 0, 0.12);
+  transform: scale(0.96) translateY(12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cookie-modal-backdrop.is-open .cookie-modal-container {
+  transform: scale(1) translateY(0);
+}
+
+.cookie-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.cookie-eyebrow-pill {
+  display: inline-block;
+  color: #ff4500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  background: rgba(255, 69, 0, 0.12);
+  border: 1px solid rgba(255, 69, 0, 0.35);
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.cookie-modal-title {
+  color: #ffffff;
+  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.cookie-modal-close-btn {
+  background: #1f1f23;
+  border: 1px solid #2e2e33;
+  color: #9ca3af;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.cookie-modal-close-btn:hover {
+  color: #ffffff;
+  background: #2e2e33;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cookie-modal-intro {
+  color: #9ca3af;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+.cookie-preference-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.cookie-pref-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  background: #101217;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.cookie-pref-info {
+  flex: 1;
+}
+
+.cookie-pref-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.cookie-pref-name {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.cookie-status-badge {
+  background: #1f1f23;
+  border: 1px solid #2e2e33;
+  color: #9ca3af;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cookie-optional-badge {
+  background: rgba(255, 69, 0, 0.1);
+  border: 1px solid rgba(255, 69, 0, 0.3);
+  color: #ff4500;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cookie-pref-desc {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Toggle Switch Component */
+.cookie-toggle-wrap {
+  flex-shrink: 0;
+}
+
+.cookie-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  margin: 0;
+}
+
+.cookie-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cookie-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #272a30;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 999px;
+}
+
+.cookie-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 50%;
+}
+
+.cookie-switch input:checked + .cookie-slider {
+  background-color: #ff4500;
+  border-color: #ff4500;
+  box-shadow: 0 0 12px rgba(255, 69, 0, 0.4);
+}
+
+.cookie-switch input:checked + .cookie-slider:before {
+  transform: translateX(22px);
+}
+
+.cookie-slider.is-disabled {
+  background-color: #1f2228;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.cookie-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
