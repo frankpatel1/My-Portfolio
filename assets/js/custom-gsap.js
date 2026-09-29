@@ -21,24 +21,8 @@
   "use strict";
 
   ////////////////////////////////////////////////////
-  // 01. Smooth Scroll Js
-  function smoothSctoll() {
-    $(".smooth a").on("click", function (event) {
-      var target = $(this.getAttribute("href"));
-      if (target.length) {
-        event.preventDefault();
-        $("html, body")
-          .stop()
-          .animate(
-            {
-              scrollTop: target.offset().top - 120,
-            },
-            1500,
-          );
-      }
-    });
-  }
-  smoothSctoll();
+  // 01. Smooth Scroll & ScrollSmoother Js
+  let smoother = null;
   if ($("#smooth-wrapper").length && $("#smooth-content").length) {
     gsap.registerPlugin(
       ScrollTrigger,
@@ -49,14 +33,64 @@
     gsap.config({
       nullTargetWarn: false,
     });
-    let smoother = ScrollSmoother.create({
+    smoother = ScrollSmoother.create({
       smoothTouch: 0.2,
       smooth: 4,
       effects: true,
       normalizeScroll: false,
       ignoreMobileResize: true,
     });
+    window.portfolioSmoother = smoother;
+
+    // Handle direct URL hash on initial page load (e.g. /#experience)
+    if (window.location.hash) {
+      const initialHash = window.location.hash;
+      const initialTarget = document.querySelector(initialHash);
+      if (initialTarget) {
+        setTimeout(function () {
+          smoother.scrollTo(initialTarget, true, "top 80px");
+        }, 600);
+        setTimeout(function () {
+          smoother.scrollTo(initialTarget, true, "top 80px");
+        }, 1200);
+      }
+    }
   }
+
+  function scrollToSection(targetSelector, updateHash) {
+    if (!targetSelector || targetSelector === "#") return;
+    const targetEl = typeof targetSelector === "string" ? document.querySelector(targetSelector) : targetSelector;
+    if (!targetEl) return;
+
+    const currentSmoother = (window.ScrollSmoother && typeof ScrollSmoother.get === "function" && ScrollSmoother.get()) || window.portfolioSmoother || smoother;
+    if (currentSmoother && typeof currentSmoother.scrollTo === "function") {
+      currentSmoother.scrollTo(targetEl, true, "top 80px");
+    } else {
+      const headerOffset = 80;
+      const elementPosition = targetEl.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    if (updateHash && typeof targetSelector === "string" && history.pushState) {
+      history.pushState(null, "", targetSelector);
+    }
+  }
+  window.scrollToSection = scrollToSection;
+
+  $(document).on("click", 'a[href^="#"]', function (event) {
+    const href = this.getAttribute("href");
+    if (href && href.length > 1 && href.startsWith("#")) {
+      const targetEl = document.querySelector(href);
+      if (targetEl) {
+        event.preventDefault();
+        scrollToSection(targetEl, true);
+      }
+    }
+  });
 
   ////////////////////////////////////////////////////
   // 02. Char SplitText Js

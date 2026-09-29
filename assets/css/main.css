@@ -13730,6 +13730,15 @@ canvas {
   to { transform: rotate(360deg); }
 }
 
+#services,
+#experience,
+#about,
+#skills,
+#portfolio,
+#github-projects,
+#milestones,
+#education,
+#achievements,
 #contact {
   scroll-margin-top: 100px;
 }

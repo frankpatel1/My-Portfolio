@@ -382,6 +382,9 @@
   ////////////////////////////////////////////////////
   // 15. Contact Form AJAX & Accessible Validation
   document.addEventListener("DOMContentLoaded", () => {
+    // If portfolio-features.js is loaded, defer to its advanced anti-spam & tracking suite to prevent double submissions
+    if (document.querySelector('script[src*="portfolio-features.js"]')) return;
+
     const contactForm = document.getElementById("contact-form");
     if (!contactForm) return;
 

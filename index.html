@@ -2574,8 +2574,29 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // ==========================================
-        // 1. Smooth Scroll for All Anchor Links
+        // 1. Smooth Scroll for All Anchor Links & Direct URL Hash
         // ==========================================
+        function performSmoothScroll(targetElement, targetId) {
+          if (!targetElement) return;
+          const smoother =
+            (window.ScrollSmoother && typeof ScrollSmoother.get === "function" && ScrollSmoother.get()) ||
+            window.portfolioSmoother;
+          if (smoother && typeof smoother.scrollTo === "function") {
+            smoother.scrollTo(targetElement, true, "top 80px");
+          } else {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          }
+          if (targetId && history.pushState) {
+            history.pushState(null, "", targetId);
+          }
+        }
+
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
             const targetId = this.getAttribute("href");
@@ -2583,14 +2604,24 @@
               const targetElement = document.querySelector(targetId);
               if (targetElement) {
                 e.preventDefault();
-                targetElement.scrollIntoView({
-                  behavior: "smooth",
-                  block: "start",
-                });
+                performSmoothScroll(targetElement, targetId);
               }
             }
           });
         });
+
+        // Handle URL hash on initial load (e.g. #experience)
+        if (window.location.hash) {
+          const initialTarget = document.querySelector(window.location.hash);
+          if (initialTarget) {
+            setTimeout(() => {
+              performSmoothScroll(initialTarget, null);
+            }, 600);
+            setTimeout(() => {
+              performSmoothScroll(initialTarget, null);
+            }, 1200);
+          }
+        }
 
         // ==========================================
         // 2. Floating Back-to-Top Button
@@ -2602,8 +2633,13 @@
           document.querySelector(".back-to-top-btn");
 
         if (backToTopBtn) {
-          window.addEventListener("scroll", () => {
-            if (window.scrollY > 400) {
+          const updateBackToTop = () => {
+            const scrollPos =
+              window.scrollY ||
+              (window.portfolioSmoother && typeof window.portfolioSmoother.scrollTop === "function"
+                ? window.portfolioSmoother.scrollTop()
+                : 0);
+            if (scrollPos > 350) {
               backToTopBtn.style.opacity = "1";
               backToTopBtn.style.pointerEvents = "auto";
               backToTopBtn.style.transform = "translateY(0)";
@@ -2612,26 +2648,36 @@
               backToTopBtn.style.pointerEvents = "none";
               backToTopBtn.style.transform = "translateY(12px)";
             }
-          });
+          };
+
+          window.addEventListener("scroll", updateBackToTop, { passive: true });
+          setInterval(updateBackToTop, 400);
 
           backToTopBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
+            const smoother =
+              (window.ScrollSmoother && typeof ScrollSmoother.get === "function" && ScrollSmoother.get()) ||
+              window.portfolioSmoother;
+            if (smoother && typeof smoother.scrollTo === "function") {
+              smoother.scrollTo(0, true);
+            } else {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }
           });
         }
 
         // ==========================================
-        // 3. Project Filter Tabs (All / JS / HTML-CSS)
+        // 3. GitHub Project Filter Tabs (All / JS / HTML-CSS)
         // ==========================================
-        const filterButtons = document.querySelectorAll(".filter-btn, .github-project-filter, [data-filter]");
-        const projectCards = document.querySelectorAll(".project-card, .github-project-card, [data-category]");
+        const projectFilterBtns = document.querySelectorAll(".github-project-filters .filter-btn");
+        const githubCards = document.querySelectorAll(".github-projects-grid .github-project-card");
 
-        filterButtons.forEach((btn) => {
+        projectFilterBtns.forEach((btn) => {
           btn.addEventListener("click", function () {
-            filterButtons.forEach((b) => {
+            projectFilterBtns.forEach((b) => {
               b.classList.remove("active", "is-active");
               b.setAttribute("aria-pressed", "false");
             });
@@ -2640,18 +2686,23 @@
 
             const filterValue = (this.getAttribute("data-filter") || this.textContent.trim()).toLowerCase();
 
-            projectCards.forEach((card) => {
+            githubCards.forEach((card) => {
               const cardCategory = (card.getAttribute("data-category") || card.textContent).toLowerCase();
               const normalizedFilter = filterValue.replace("/", "");
 
               if (filterValue === "all" || cardCategory.includes(normalizedFilter)) {
                 card.style.display = "";
-                card.style.opacity = "1";
                 card.classList.remove("is-hidden");
+                card.style.opacity = "0";
+                card.style.transform = "translateY(8px)";
+                requestAnimationFrame(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = "translateY(0)";
+                });
               } else {
+                card.classList.add("is-hidden");
                 card.style.display = "none";
                 card.style.opacity = "0";
-                card.classList.add("is-hidden");
               }
             });
           });
@@ -2660,14 +2711,18 @@
         // ==========================================
         // 3b. Skills Category Filter Handler
         // ==========================================
-        const skillFilterBtns = document.querySelectorAll(".skill-filter-btn");
+        const skillFilterBtns = document.querySelectorAll(".skills-filter-container .skill-filter-btn");
         const skillCards = document.querySelectorAll(".skills-grid .skill-card");
 
         skillFilterBtns.forEach((button) => {
           button.addEventListener("click", function () {
             // 1. Toggle active state on buttons
-            skillFilterBtns.forEach((btn) => btn.classList.remove("active"));
+            skillFilterBtns.forEach((btn) => {
+              btn.classList.remove("active");
+              btn.setAttribute("aria-pressed", "false");
+            });
             this.classList.add("active");
+            this.setAttribute("aria-pressed", "true");
 
             const selectedFilter = this.getAttribute("data-skill-filter");
 
@@ -2677,7 +2732,7 @@
 
               if (selectedFilter === "all" || cardCategory === selectedFilter) {
                 card.classList.remove("is-hidden");
-                // Smooth fade-in
+                card.style.display = "";
                 card.style.opacity = "0";
                 card.style.transform = "translateY(10px)";
                 requestAnimationFrame(() => {
@@ -2686,6 +2741,8 @@
                 });
               } else {
                 card.classList.add("is-hidden");
+                card.style.display = "none";
+                card.style.opacity = "0";
               }
             });
           });
