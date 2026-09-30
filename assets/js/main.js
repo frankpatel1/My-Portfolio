@@ -266,12 +266,39 @@
 
   ////////////////////////////////////////////////////
   // 10. Counter Js
-  new PureCounter();
-  new PureCounter({
-    filesizing: true,
-    selector: ".filesizecount",
-    pulse: 2,
-  });
+  // The final value is rendered in the HTML (data-count-end), so the page is
+  // correct without JS, in print, and for anyone who never scrolls here.
+  // JS only *enhances*: when a counter first becomes visible it counts up from 0.
+  (function initCounters() {
+    var counters = document.querySelectorAll(".purecounter[data-count-end]");
+    if (!counters.length) return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce || !("IntersectionObserver" in window)) return; // keep the static value
+
+    function run(el) {
+      var end = parseFloat(el.getAttribute("data-count-end"));
+      var dur = (parseFloat(el.getAttribute("data-count-duration")) || 2) * 1000;
+      var t0 = null;
+      el.textContent = "0";
+      function step(ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        el.textContent = String(Math.round(end * (1 - Math.pow(1 - p, 3))));
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = String(end); // always land on the real value
+      }
+      requestAnimationFrame(step);
+    }
+
+    var io = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        obs.unobserve(entry.target);
+        run(entry.target);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (el) { io.observe(el); });
+  })();
 
   ////////////////////////////////////////////////////
   // 11. Feature Widget Animation Js

@@ -47,12 +47,12 @@
   border: 1px solid rgba(255, 69, 0, 0.35);
   color: #ff4500;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.74rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 4px 12px;
-  border-radius: 999px;
+  border-radius: 9999px;
   margin-bottom: 12px;
 }
 
@@ -71,9 +71,9 @@
 }
 
 .cookie-consent-text {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   line-height: 1.6;
-  color: #d1d5db;
+  color: #cbd5e1;
   margin-bottom: 16px;
 }
 
@@ -97,11 +97,11 @@
 }
 
 .cookie-btn {
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.03em;
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   min-height: 38px;
@@ -128,7 +128,7 @@
 
 .cookie-btn-outline {
   background: #1f1f23;
-  color: #d1d5db;
+  color: #cbd5e1;
   border: 1px solid #2e2e33;
 }
 
@@ -191,20 +191,20 @@
   display: inline-block;
   color: #ff4500;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.74rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 3px 10px;
   background: rgba(255, 69, 0, 0.12);
   border: 1px solid rgba(255, 69, 0, 0.35);
-  border-radius: 999px;
+  border-radius: 9999px;
   margin-bottom: 8px;
 }
 
 .cookie-modal-title {
   color: #ffffff;
-  font-size: clamp(1.25rem, 3vw, 1.55rem);
+  font-size: clamp(1.25rem, 3vw, 1.5rem);
   font-weight: 800;
   margin: 0;
   letter-spacing: -0.015em;
@@ -213,7 +213,7 @@
 .cookie-modal-close-btn {
   background: #1f1f23;
   border: 1px solid #2e2e33;
-  color: #9ca3af;
+  color: #a1a1aa;
   border-radius: 8px;
   width: 36px;
   height: 36px;
@@ -232,8 +232,8 @@
 }
 
 .cookie-modal-intro {
-  color: #9ca3af;
-  font-size: 0.92rem;
+  color: #a1a1aa;
+  font-size: 0.875rem;
   line-height: 1.6;
   margin-bottom: 22px;
 }
@@ -271,17 +271,17 @@
 .cookie-pref-name {
   color: #ffffff;
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .cookie-status-badge {
   background: #1f1f23;
   border: 1px solid #2e2e33;
-  color: #9ca3af;
-  font-size: 0.72rem;
+  color: #a1a1aa;
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -290,17 +290,17 @@
   background: rgba(255, 69, 0, 0.1);
   border: 1px solid rgba(255, 69, 0, 0.3);
   color: #ff4500;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 600;
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: 9999px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .cookie-pref-desc {
-  color: #9ca3af;
-  font-size: 0.85rem;
+  color: #a1a1aa;
+  font-size: 0.875rem;
   line-height: 1.5;
   margin: 0;
 }
@@ -331,7 +331,7 @@
   background-color: #272a30;
   border: 1px solid rgba(255, 255, 255, 0.12);
   transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  border-radius: 999px;
+  border-radius: 9999px;
 }
 
 .cookie-slider:before {
@@ -391,7 +391,7 @@
 
 .contact-error-msg {
   display: none;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   color: #f87171;
   margin-top: 6px;
   font-weight: 500;
@@ -399,9 +399,9 @@
 }
 
 .contact-status-box {
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 14px 18px;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.5;
   margin-bottom: 20px;
@@ -439,7 +439,7 @@
 /* Header CTA - High distinction */
 .header-three-button .tw-hover-btn {
   background: linear-gradient(135deg, #ffb703 0%, #e5a100 100%) !important;
-  color: #02090f !important;
+  color: #02080d !important;
   font-weight: 800 !important;
   letter-spacing: 0.05em;
   border: none !important;
@@ -450,13 +450,13 @@
 .header-three-button .tw-hover-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(229, 161, 0, 0.55);
-  color: #000000 !important;
+  color: #02080d !important;
 }
 
 /* Hero CTAs */
 .banner-three-button .tw-hover-btn {
   background: linear-gradient(135deg, #ffb703 0%, #e5a100 100%) !important;
-  color: #02090f !important;
+  color: #02080d !important;
   font-weight: 800 !important;
   box-shadow: 0 6px 20px rgba(229, 161, 0, 0.35);
 }
@@ -482,23 +482,23 @@
 /* Ensure all muted subheadings, meta descriptions, and labels have >= 4.5:1 ratio */
 .hero-positioning-subheadline {
   color: #cbd5e1 !important; /* was darker, now crisp readable high contrast */
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.65;
 }
 
 .contact-detail-label {
-  color: #94a3b8 !important;
+  color: #a1a1aa !important;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
 
 .contact-detail-val {
-  color: #f8fafc !important;
+  color: #f4f4f5 !important;
   font-weight: 600;
 }
 
 .footer-copyright p {
-  color: #94a3b8 !important;
+  color: #a1a1aa !important;
 }
 
 .footer-compliance-nav {
@@ -512,7 +512,7 @@
 
 .footer-legal-link {
   color: #cbd5e1;
-  font-size: 0.88rem;
+  font-size: 0.875rem;
   text-decoration: none;
   transition: color 0.2s ease;
   padding: 4px 8px;
@@ -526,8 +526,8 @@
 }
 
 .footer-divider-dot {
-  color: #475569;
-  font-size: 0.8rem;
+  color: #a1a1aa;
+  font-size: 0.875rem;
 }
 
 /* ==========================================
@@ -589,7 +589,7 @@
   display: inline-block;
   color: #ff4500 !important;
   font-family: var(--body-font);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -597,7 +597,7 @@
   padding: 0.38rem 1rem;
   background: rgba(255, 69, 0, 0.12) !important;
   border: 1px solid rgba(255, 69, 0, 0.35) !important;
-  border-radius: 999px;
+  border-radius: 9999px;
   line-height: 1.2;
 }
 
@@ -607,7 +607,7 @@
 .credentials-section h3 {
   color: #ffffff !important;
   font-family: var(--heading-font);
-  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-size: clamp(2rem, 3.8vw, 3rem);
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.025em;
@@ -620,7 +620,7 @@
 .credentials-section p {
   color: #a1a1aa !important;
   font-family: var(--body-font);
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.65;
   margin: 0 auto;
 }
@@ -682,9 +682,9 @@
   border: 1px solid rgba(255, 69, 0, 0.3) !important;
   color: #ff4500 !important;
   padding: 0.28rem 0.75rem;
-  border-radius: 999px;
+  border-radius: 9999px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-  font-size: 0.76rem !important;
+  font-size: 0.875rem !important;
   font-weight: 600 !important;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -694,9 +694,9 @@
   display: inline-flex;
   align-items: center;
   padding: 0.28rem 0.75rem;
-  border-radius: 999px;
+  border-radius: 9999px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-  font-size: 0.74rem !important;
+  font-size: 0.875rem !important;
   font-weight: 700 !important;
   background: rgba(255, 69, 0, 0.12) !important;
   border: 1px solid rgba(255, 69, 0, 0.4) !important;
@@ -714,7 +714,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   transition: transform 0.35s ease, background 0.35s ease, color 0.35s ease !important;
 }
 
@@ -732,7 +732,7 @@
 .credential-title {
   color: #ffffff !important;
   font-family: var(--heading-font);
-  font-size: clamp(1.25rem, 2.2vw, 1.55rem) !important;
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem) !important;
   font-weight: 700 !important;
   line-height: 1.3 !important;
   margin: 0 0 0.65rem 0 !important;
@@ -744,23 +744,23 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  color: #9ca3af !important;
+  color: #a1a1aa !important;
   font-family: var(--body-font);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.85rem;
 }
 
 .credential-institution i {
   color: #ff4500 !important;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
 }
 
 /* Description: Matches .experience-role-desc */
 .credential-desc {
-  color: #d1d5db !important;
+  color: #cbd5e1 !important;
   font-family: var(--body-font);
-  font-size: 0.96rem !important;
+  font-size: 1rem !important;
   line-height: 1.6 !important;
   margin: 0;
 }
@@ -786,11 +786,11 @@
   padding: 0.35rem 0.75rem;
   background: #1f1f23 !important;
   border: 1px solid #2e2e33 !important;
-  border-radius: 6px !important;
+  border-radius: 8px !important;
   font-family: var(--body-font);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: #f3f4f6 !important;
+  color: #f4f4f5 !important;
   line-height: 1.3;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   cursor: default;
@@ -863,7 +863,7 @@
 .cert-title {
   color: #ffffff !important;
   font-family: var(--body-font);
-  font-size: 0.96rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.35;
   margin: 0;
@@ -872,12 +872,12 @@
 .cert-featured-pill {
   display: inline-block;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 0.2rem 0.65rem;
-  border-radius: 999px;
+  border-radius: 9999px;
   background: rgba(255, 69, 0, 0.15) !important;
   border: 1px solid rgba(255, 69, 0, 0.4) !important;
   color: #ff4500 !important;
@@ -885,9 +885,9 @@
 }
 
 .cert-meta {
-  color: #9ca3af !important;
+  color: #a1a1aa !important;
   font-family: var(--body-font);
-  font-size: 0.83rem;
+  font-size: 0.875rem;
   line-height: 1.4;
 }
 
@@ -900,12 +900,12 @@
   align-items: center;
   gap: 6px;
   background: rgba(255, 107, 0, 0.12);
-  color: #ff8533;
+  color: #ff914d;
   border: 1px solid rgba(255, 107, 0, 0.3);
   border-radius: 9999px;
   padding: 5px 13px;
   font-family: var(--body-font, sans-serif);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -921,7 +921,7 @@
 }
 
 .contact-demo-gen-btn i {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #ff914d;
 }
 
@@ -932,20 +932,20 @@
 }
 
 .demo-topics-label {
-  font-size: 0.76rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: #9ca3af;
+  color: #a1a1aa;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .demo-reset-btn {
   background: transparent;
-  color: #94a3b8;
+  color: #a1a1aa;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 3px 8px;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -968,11 +968,11 @@
 
 .demo-topic-pill {
   background: rgba(255, 255, 255, 0.04);
-  color: #d1d5db;
+  color: #cbd5e1;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 5px 11px;
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1028,11 +1028,11 @@
 .services-bento-eyebrow {
   display: inline-block;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #ff6b00;
+  color: #ff4500;
   background: rgba(255, 107, 0, 0.1);
   border: 1px solid rgba(255, 107, 0, 0.25);
   padding: 5px 14px;
@@ -1041,7 +1041,7 @@
 }
 
 .services-bento-title {
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -1050,9 +1050,9 @@
 }
 
 .services-bento-intro {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: #94a3b8;
+  color: #a1a1aa;
   margin: 0 auto;
 }
 
@@ -1069,7 +1069,7 @@
 .services-bento-card {
   background: linear-gradient(155deg, rgba(22, 26, 33, 0.94) 0%, rgba(13, 16, 21, 0.98) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
+  border-radius: 16px;
   padding: 34px 30px;
   display: flex;
   flex-direction: column;
@@ -1113,9 +1113,9 @@
 
 .bento-card-num {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #ff6b00;
+  color: #ff4500;
   letter-spacing: -0.05em;
   opacity: 0.9;
 }
@@ -1124,7 +1124,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1132,16 +1132,16 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .bento-card-badge i {
-  color: #ff6b00;
-  font-size: 0.9rem;
+  color: #ff4500;
+  font-size: 0.875rem;
 }
 
 .bento-card-title {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 12px;
@@ -1149,9 +1149,9 @@
 }
 
 .bento-card-desc {
-  font-size: 0.92rem;
+  font-size: 0.875rem;
   line-height: 1.65;
-  color: #94a3b8;
+  color: #a1a1aa;
   margin-bottom: 22px;
 }
 
@@ -1164,10 +1164,10 @@
 
 .bento-tech-tags-label {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #64748b;
+  color: #a1a1aa;
   margin-bottom: 10px;
 }
 
@@ -1178,7 +1178,7 @@
 }
 
 .bento-tech-pill {
-  font-size: 0.76rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #cbd5e1;
   background: rgba(255, 255, 255, 0.04);
@@ -1215,35 +1215,35 @@
   border: 1px solid rgba(255, 107, 0, 0.22);
   border-radius: 9999px;
   padding: 4px 11px;
-  font-size: 0.74rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: #ff914d;
 }
 
 .bento-card-highlight i {
-  color: #ff6b00;
-  font-size: 0.85rem;
+  color: #ff4500;
+  font-size: 0.875rem;
 }
 
 .bento-cta-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #ff6b00;
-  font-size: 0.86rem;
+  color: #ff4500;
+  font-size: 0.875rem;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .bento-cta-link i {
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: transform 0.25s ease;
 }
 
 .bento-cta-link:hover,
 .services-bento-card:hover .bento-cta-link {
-  color: #ff8533;
+  color: #ff914d;
 }
 
 .services-bento-card:hover .bento-cta-link i {

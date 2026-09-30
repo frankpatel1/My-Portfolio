@@ -95,9 +95,13 @@
 
   ////////////////////////////////////////////////////
   // 04. Marquee Js
-  if ($(".marquee_left").length) {
+  // Decorative only: skip entirely for users who prefer reduced motion, and run slower.
+  if (
+    $(".marquee_left").length &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
     $(".marquee_left").marquee({
-      speed: 50,
+      speed: 25,
       gap: 0,
       delayBeforeStart: 0,
       direction: $("html").attr("dir") === "rtl" ? "right" : "left",
