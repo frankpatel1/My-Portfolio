@@ -73,14 +73,13 @@
 
 /* Visible keyboard focus for every button variant */
 .cta-primary:focus-visible, .cta-secondary:focus-visible, .tw-hover-btn:focus-visible,
-.bento-cta-link:focus-visible, .demo-topic-pill:focus-visible {
+.bento-cta-link:focus-visible {
   outline: 3px solid var(--accent-on-dark);
   outline-offset: 3px;
 }
 
 /* Chips / filters / pills: one radius, one size, one hit-area */
-.github-project-filter, .skill-filter-btn, .contact-pill-btn, .social-pill-btn,
-.contact-demo-gen-btn, .demo-topic-pill, .demo-reset-btn, .cookie-btn {
+.github-project-filter, .skill-filter-btn, .contact-pill-btn, .social-pill-btn, .cookie-btn {
   border-radius: var(--radius-pill);
   font-size: var(--fs-1);
   min-height: 40px;
@@ -105,7 +104,7 @@
    -------------------------------------------------------------------------- */
 .section-eyebrow, .services-bento-eyebrow, .experience-eyebrow, .milestones-eyebrow,
 .skills-eyebrow, .credentials-eyebrow, .credentials-section-eyebrow, .contact-eyebrow-badge,
-.bento-tech-tags-label, .contact-detail-label, .demo-topics-label, .github-projects-badge,
+.bento-tech-tags-label, .contact-detail-label, .github-projects-badge,
 .bento-card-badge, .achievement-category {
   text-transform: none !important;
   letter-spacing: 0.02em !important;
@@ -116,26 +115,6 @@
 .credential-title,
 .portfolio-three-list a { text-transform: none !important; }
 
-/* --------------------------------------------------------------------------
-   Quick-message pills look pressable (#14)
-   -------------------------------------------------------------------------- */
-.demo-topic-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-}
-.demo-topic-pill::before {
-  content: "+";
-  font-weight: 700;
-  line-height: 1;
-  color: var(--accent-on-dark);
-}
-.demo-topic-pill[aria-pressed="true"]::before,
-.demo-topic-pill.is-active::before { content: "\2713"; color: currentColor; }
-.demo-topic-pill:hover { border-color: var(--accent-on-dark); }
 
 /* --------------------------------------------------------------------------
    Decorative services marquee must not compete with content (#16)
@@ -190,3 +169,8 @@
 /* Stragglers folded into the shared button system (#4) */
 .contact-hub-submit-btn { border-radius: var(--radius-md) !important; padding: 14px 28px !important; min-height: 52px; font-size: var(--fs-2) !important; }
 button.skill-filter-btn { padding: 8px 16px !important; }
+
+/* Hero subheadline text color in black */
+.hero-positioning-subheadline {
+  color: #000000 !important;
+}

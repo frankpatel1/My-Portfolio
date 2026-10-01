@@ -375,7 +375,7 @@
     const nameInput = document.getElementById("contact-name");
     const emailInput = document.getElementById("contact-email");
     const messageInput = document.getElementById("contact-message");
-    const statusBox = document.getElementById("contact-status");
+    const statusBox = document.getElementById("contact-form-status") || document.getElementById("contact-status");
     const submitBtn = document.getElementById("contact-submit-btn");
 
     function validateField(input, testFn, errorElementId, message) {
@@ -451,131 +451,7 @@
       });
     }
 
-    // ==========================================
-    // Demo Message Auto-Generator & Topic Presets
-    // ==========================================
-    const demoBtn = document.getElementById("btn-auto-demo-msg");
-    const demoPills = document.querySelectorAll(".demo-topic-pill[data-demo-topic]");
-    const resetDemoBtn = document.getElementById("btn-reset-demo-msg");
-    const subjectInput = document.getElementById("contact-subject");
 
-    const demoTemplates = {
-      fullstack: {
-        name: "Alex Reed",
-        email: "alex.reed@techinnovations.io",
-        subject: "Full-Stack Engineer Opportunity",
-        message: "Hi Frank, I came across your portfolio and was impressed by your Full-Stack Web Development projects and component architecture. We have an upcoming React & Node.js application initiative and would love to schedule a brief introductory call to discuss your background."
-      },
-      automation: {
-        name: "Michael Chang",
-        email: "m.chang@datasync-solutions.com",
-        subject: "Python Automation & ETL Pipeline Collaboration",
-        message: "Hi Frank, We are looking for a skilled Python Automation Engineer to build reliable background workers, automated ETL pipelines, and API integrations for our analytics platform. Your portfolio demonstrates the exact technical toolkit we need. When would you be available for a brief sync?"
-      },
-      scraping: {
-        name: "Elena Rostova",
-        email: "elena.rostova@growthmetrics.co",
-        subject: "Web Scraping & Data Extraction Pipeline Inquiry",
-        message: "Hi Frank, We need a customized web scraping and data extraction pipeline using Python (BeautifulSoup / Selenium) with proxy management and automated scheduling. Could you share your availability and estimated project timeline for a project like this?"
-      },
-      collab: {
-        name: "David Miller",
-        email: "david.miller@devcommunity.org",
-        subject: "Tech Architecture & Open Source Collaboration",
-        message: "Hi Frank, I checked out your GitHub projects and was really impressed by your clean code style and UI polish. I'm building a modern web platform and would love to connect about your architecture choices and potential collaboration. Keep up the fantastic work!"
-      }
-    };
-
-    const topicKeys = Object.keys(demoTemplates);
-    let currentTopicIndex = 0;
-
-    function populateDemoMessage(topicKey) {
-      const data = demoTemplates[topicKey] || demoTemplates.fullstack;
-      if (!data) return;
-
-      // Mark form interacted and advance timestamp so anti-spam time check passes
-      form.dataset.interacted = "true";
-      formInitTimestamp = Date.now() - 3500;
-
-      if (nameInput) {
-        nameInput.value = data.name;
-        validateField(nameInput, (val) => val.length >= 2, "name-error", "");
-      }
-      if (emailInput) {
-        emailInput.value = data.email;
-        validateField(emailInput, (val) => emailRegex.test(val), "email-error", "");
-      }
-      if (messageInput) {
-        messageInput.value = data.message;
-        validateField(messageInput, (val) => val.length >= 10, "message-error", "");
-      }
-      if (subjectInput) {
-        subjectInput.value = data.subject;
-      }
-
-      // Highlight active pill
-      demoPills.forEach((p) => {
-        if (p.getAttribute("data-demo-topic") === topicKey) {
-          p.classList.add("is-active");
-          p.setAttribute("aria-pressed", "true");
-        } else {
-          p.classList.remove("is-active");
-          p.setAttribute("aria-pressed", "false");
-        }
-      });
-
-      // Show friendly confirmation notice
-      if (statusBox) {
-        statusBox.className = "contact-status-box status-info";
-        statusBox.innerHTML = `<i class="ph ph-sparkle"></i> Demo message generated (<strong>${data.subject}</strong>). You can edit or submit directly!`;
-        statusBox.style.display = "block";
-      }
-
-      // Track demo auto-generation event
-      if (typeof window.trackPortfolioEvent === "function") {
-        window.trackPortfolioEvent("generate_demo_message", "engagement", topicKey);
-      }
-    }
-
-    if (demoBtn) {
-      demoBtn.addEventListener("click", () => {
-        const topic = topicKeys[currentTopicIndex % topicKeys.length];
-        currentTopicIndex++;
-        populateDemoMessage(topic);
-      });
-    }
-
-    demoPills.forEach((pill) => {
-      pill.addEventListener("click", function () {
-        const topicKey = this.getAttribute("data-demo-topic");
-        populateDemoMessage(topicKey);
-      });
-    });
-
-    if (resetDemoBtn) {
-      resetDemoBtn.addEventListener("click", () => {
-        if (nameInput) {
-          nameInput.value = "";
-          nameInput.classList.remove("is-valid", "is-invalid");
-        }
-        if (emailInput) {
-          emailInput.value = "";
-          emailInput.classList.remove("is-valid", "is-invalid");
-        }
-        if (messageInput) {
-          messageInput.value = "";
-          messageInput.classList.remove("is-valid", "is-invalid");
-        }
-        demoPills.forEach((p) => {
-          p.classList.remove("is-active");
-          p.setAttribute("aria-pressed", "false");
-        });
-        if (statusBox) {
-          statusBox.style.display = "none";
-          statusBox.textContent = "";
-        }
-      });
-    }
 
     // Submission handler
     form.addEventListener("submit", async function (e) {
@@ -646,9 +522,11 @@
       // 5. Send message via Formspree API
       const originalBtnHtml = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending Message...</span> <i class="ph ph-spinner tw-animate-spin"></i>`;
+      submitBtn.innerHTML = `<span>Sending...</span> <i class="ph ph-spinner tw-animate-spin"></i>`;
 
       if (statusBox) {
+        statusBox.textContent = "";
+        statusBox.className = "";
         statusBox.style.display = "none";
       }
 
@@ -667,19 +545,22 @@
           localStorage.setItem("fp_last_contact_submit", Date.now().toString());
 
           // Track form submission conversion
-          window.trackPortfolioEvent("submit_form", "lead_generation", "contact_form");
+          if (typeof window.trackPortfolioEvent === "function") {
+            window.trackPortfolioEvent("submit_form", "lead_generation", "contact_form");
+          }
 
           form.reset();
-          if (nameInput) nameInput.classList.remove("is-valid");
-          if (emailInput) emailInput.classList.remove("is-valid");
-          if (messageInput) messageInput.classList.remove("is-valid");
+          if (nameInput) nameInput.classList.remove("is-valid", "is-invalid");
+          if (emailInput) emailInput.classList.remove("is-valid", "is-invalid");
+          if (messageInput) messageInput.classList.remove("is-valid", "is-invalid");
 
           submitBtn.innerHTML = `<span>Message Sent Successfully!</span> <i class="ph ph-check-circle"></i>`;
           submitBtn.style.backgroundColor = "#22c55e";
 
           if (statusBox) {
-            statusBox.className = "contact-status-box status-success";
-            statusBox.textContent = "Thank you! Your message has been delivered. Frank will respond within 24 hours.";
+            statusBox.textContent = "Thank you! Your message has been sent successfully.";
+            statusBox.style.color = "#22c55e";
+            statusBox.style.marginTop = "12px";
             statusBox.style.display = "block";
           }
 
@@ -689,17 +570,32 @@
             submitBtn.disabled = false;
           }, 4500);
         } else {
-          throw new Error("Formspree server response error");
-        }
-      } catch (err) {
-        submitBtn.innerHTML = originalBtnHtml;
-        submitBtn.disabled = false;
+          const result = await response.json().catch(() => null);
+          let errorMsg = "Something went wrong. Please reach out directly via email.";
+          if (result && Array.isArray(result.errors) && result.errors.length > 0) {
+            errorMsg = result.errors.map((err) => err.message || err.field).join(", ");
+          } else if (result && result.error) {
+            errorMsg = result.error;
+          }
 
+          if (statusBox) {
+            statusBox.textContent = errorMsg;
+            statusBox.style.color = "#ef4444";
+            statusBox.style.marginTop = "12px";
+            statusBox.style.display = "block";
+          }
+          submitBtn.innerHTML = originalBtnHtml;
+          submitBtn.disabled = false;
+        }
+      } catch (error) {
         if (statusBox) {
-          statusBox.className = "contact-status-box status-error";
-          statusBox.innerHTML = `Unable to send message directly. Please email Frank directly at <a href="mailto:frankpatel33@gmail.com" class="text-underline">frankpatel33@gmail.com</a>.`;
+          statusBox.textContent = "Network error. Please check your connection or email directly.";
+          statusBox.style.color = "#ef4444";
+          statusBox.style.marginTop = "12px";
           statusBox.style.display = "block";
         }
+        submitBtn.innerHTML = originalBtnHtml;
+        submitBtn.disabled = false;
       }
     });
   }

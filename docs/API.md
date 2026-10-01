@@ -1,106 +1,95 @@
 # API.md
 
 ## 1. Purpose
-This file documents the API conventions and important endpoints used by this project.
+This file documents the API endpoints, transmission protocols, external integrations, and request/response specifications for the **Frank Patel Portfolio**.
 
-## 2. Base Configuration
-Development: http://localhost:3000/api
-Production: https://your-domain.com/api
-Response format: JSON
+## 2. Primary Endpoint: Formspree Contact API
 
-If the API is versioned:
-Base path: /api/v1
+### `POST https://formspree.io/f/xvkgrzpg`
+Handles contact form submissions from the portfolio's contact section.
 
-## 3. Authentication
-Protected endpoints require an authenticated session/token.
+- **URL:** `https://formspree.io/f/xvkgrzpg`
+- **Method:** `POST`
+- **Headers:**
+  ```http
+  Accept: application/json
+  ```
+- **Content-Type:** `multipart/form-data` or `application/x-www-form-urlencoded` (handled via `FormData(form)`).
 
-Example header:
-Authorization: Bearer <token>
+### Request Payload Fields
+| Field Name | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `name` | string | Yes | Sender's full name (min 2 characters). |
+| `email` | string | Yes | Valid email address for follow-up reply. |
+| `message` | string | Yes | Message body (min 10 characters). |
+| `_subject` | string | No | Default: `"New Portfolio Inquiry"`. |
+| `_gotcha` | string | No | Anti-spam honeypot field. Must be empty for human submissions. |
 
-Never expose server-only API credentials to the browser.
+### Response Shapes
 
-## 4. Endpoint Conventions
-Use nouns for resources where practical.
-
-GET    /api/v1/projects
-GET    /api/v1/projects/:id
-POST   /api/v1/projects
-PATCH  /api/v1/projects/:id
-DELETE /api/v1/projects/:id
-
-## 5. Example Endpoint
-
-### POST /api/v1/projects
-Creates a new project.
-
-Authentication: Required
-
-Request:
+#### 1. Success (`200 OK`)
 ```json
 {
-  "name": "Creator Dashboard"
+  "ok": true
 }
 ```
+**Frontend Behavior:**
+- Form resets via `form.reset()`.
+- Submit button shows confirmation: `"Message Sent Successfully!"` with `#22c55e` (green) background.
+- Status box displays: *"Thank you! Your message has been sent successfully. Frank will respond within 24 hours."*
+- Timestamp saved in `localStorage.setItem("fp_last_contact_submit", Date.now().toString())`.
 
-Success — 201:
+#### 2. Validation / Field Error (`400 Bad Request` or `422 Unprocessable Entity`)
 ```json
 {
-  "success": true,
-  "data": {
-    "id": "project_123",
-    "name": "Creator Dashboard"
-  }
+  "errors": [
+    {
+      "field": "email",
+      "message": "is not valid",
+      "code": "TYPE_EMAIL"
+    }
+  ]
 }
 ```
+**Frontend Behavior:**
+- Parse `data.errors` array and display specific error message in `#contact-status`.
+- Re-enable submit button.
 
-Validation error — 400:
+#### 3. Rate Limit / Server Error (`429 Too Many Requests` / `500 Internal Error`)
 ```json
 {
-  "success": false,
-  "error": {
-    "code": "INVALID_INPUT",
-    "message": "Project name is required."
-  }
+  "error": "Too many requests. Please try again later."
 }
 ```
+**Frontend Behavior:**
+- Display error notice with direct fallback link: `<a href="mailto:frankpatel33@gmail.com">frankpatel33@gmail.com</a>`.
 
-## 6. Status Codes
-200 - Successful request
-201 - Resource created
-400 - Invalid request
-401 - Authentication required
-403 - Authenticated but not allowed
-404 - Resource not found
-409 - Conflict
-429 - Too many requests
-500 - Unexpected server error
+---
 
-## 7. Error Rules
-- Return a consistent error shape.
-- Do not return internal stack traces.
-- Give users actionable messages where safe.
-- Log enough server-side context to debug failures.
-- Do not log secrets or sensitive request data.
+## 3. Communication Protocols & Native Handlers
 
-## 8. Rate Limiting
-Apply rate limits to endpoints that can be abused, especially:
-- authentication
-- password reset
-- AI generation
-- public forms
-- expensive searches
+### 1. Direct Email (Mailto Protocol)
+- **URI:** `mailto:frankpatel33@gmail.com`
+- **Usage:** Secondary contact cards, footer links, and API failure fallback.
 
-## 9. Third-Party APIs
-For every important integration, document:
-- provider name
-- purpose
-- required environment variables
-- server/client usage
-- webhook endpoints
-- expected failure behavior
+### 2. Direct Phone / WhatsApp (Tel Protocol)
+- **URI:** `tel:+919510780978`
+- **Usage:** Direct mobile dialing and WhatsApp routing.
 
-Example:
-Stripe
-Purpose: payments
-Secret: STRIPE_SECRET_KEY (server only)
-Webhook: /api/webhooks/stripe
+### 3. Google Maps Location Link
+- **URI:** `https://www.google.com/maps/place/Ahmedabad,+Gujarat`
+- **Attributes:** `target="_blank" rel="noopener noreferrer"`
+
+---
+
+## 4. Third-Party Integrations
+
+### 1. Formspree
+- **Purpose:** Serverless email forwarding for portfolio leads.
+- **Quota & Constraints:** Managed in the Formspree account dashboard.
+- **Fail-safe:** Graceful degradation to direct `mailto` link.
+
+### 2. GitHub Public API (Optional / Future Read-Only)
+- **Base URL:** `https://api.github.com/users/frankpatel1/repos`
+- **Authentication:** Unauthenticated public rate limit (60 requests/hr/IP).
+- **Caching:** Cache responses in `sessionStorage` if dynamic stargazers/forks are loaded.
